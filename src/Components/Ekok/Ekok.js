@@ -78,6 +78,7 @@ const Ekok = () => {
                         t_bus: (parts[7]),
                         t_target: (parts[8]),
                         t_ratio: (parts[9])
+
                     };
                     return ph;
                 });
@@ -91,7 +92,7 @@ const Ekok = () => {
     return (
 
         <div>
-            <button style={{ fontSize: '12px' }} className='btn btn-primary m-1'><b>FIRST YEAR TARGET VS BUSINESS</b></button>
+            <button style={{ fontSize: '14px' }} className='btn rounded btn-success drop-shadow-lg bg-[#087f23] btn-md text-white m-1'><b>FIRST YEAR TARGET VS BUSINESS</b></button>
             {/* <img className='rounded-circle shadow bg-white p-3 m-3' style={{ width: '100px', height: '100px' }} src={logo} alt="" /> */}
             {/* <h6 className='mb-0 text-success'> <b style={{ fontWeight: 'bold' }}>BUSINESS</b>  INFORMATION-2022</h6>
             <p className='mb-0 text-success'>(All DIVISION-EKOK)</p> */}
@@ -183,7 +184,7 @@ const Ekok = () => {
             </div>
 
 
-            <button style={{ fontSize: '12px' }} className='btn btn-primary m-1'><b >RENEWAL TARGET VS BUSINESS</b></button>
+            <button style={{ fontSize: '14px' }} className='btn rounded btn-success drop-shadow-lg bg-[#087f23] btn-md text-white m-1'><b >RENEWAL TARGET VS BUSINESS</b></button>
 
             {/* <h6 className='mb-0 text-success'> <b style={{ fontWeight: 'bold' }}>RENEWAL</b>  BUSINESS INFORMATION-2022</h6>
             <p className='mb-0 text-success'>(All DIVISION-EKOK)</p> */}
@@ -275,7 +276,7 @@ const Ekok = () => {
             </div>
 
 
-            <button style={{ fontSize: '12px' }} className='btn btn-primary m-1'><b>TOTAL TARGET VS BUSINESS</b></button>
+            <button style={{ fontSize: '14px' }} className='btn rounded btn-success drop-shadow-lg bg-[#087f23] btn-md text-white m-1'><b>TOTAL TARGET VS BUSINESS</b></button>
 
             {/* <h6 className='mb-0 text-success'> <b style={{ fontWeight: 'bold' }}>TOTAL</b>  BUSINESS INFORMATION-2022</h6>
             <p className='mb-0 text-success'>(All DIVISION-EKOK)</p> */}

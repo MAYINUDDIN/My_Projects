@@ -1,20 +1,14 @@
-import React, { useEffect, useState } from 'react';
-import logo from '../icon/logo.png'
-import useData from '../useData/useData';
-import generateDate from '../generateData';
-
-import {
-    ResponsiveContainer, ComposedChart, Line, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, Area, Scatter
-} from "recharts";
 import axios from 'axios';
-import { NumberFormatter } from '@amcharts/amcharts5';
+import React, { useEffect, useState } from 'react';
+import { Bar, ComposedChart, Legend, Line, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts';
+
+const Total = () => {
 
 
-const Sb = ({ ekok }) => {
     const [ekokData, setEkokData] = useState([]);
-    const [ReData, setReData] = useState([]);
+    const [reData, setReData] = useState([]);
     useEffect(() => {
-        axios.get('http://202.164.213.67/payment/business_sb.php')
+        axios.get('http://202.164.213.67/payment/business.php')
             .then(data => {
                 const loadedData = data.data.Policy_Statement;
 
@@ -31,17 +25,14 @@ const Sb = ({ ekok }) => {
                     // const fy_t = {
                     //     ft: ekok.FY_TARGET
                     // }
-                    const parts = ekok.OFF_NAME.split('-');
+                    const partss = ekok.OFF_NAME.split('-');
                     const figCore = 10000000;
-                    const figLac = 100000;
-
-
+                    const figLac = 1000000;
                     const ph = {
-                        name: parts[0],
-                        // target: parseInt(parts[1], 10) / figCore,
-                        target: (parts[1]),
-                        business: (parts[2]),
-                        ratio: (parts[3]),
+                        name: partss[0],
+                        target: (partss[1]) / figCore,
+                        business: (partss[2]),
+                        ratio: (partss[3]),
                     };
                     return ph;
                 });
@@ -50,8 +41,10 @@ const Sb = ({ ekok }) => {
 
             })
     }, [])
+
+    // RENUAL DATA ================================================
     useEffect(() => {
-        axios.get('http://202.164.213.67/payment/business_sb.php')
+        axios.get('http://202.164.213.67/payment/business.php')
             .then(data => {
                 const loadedData = data.data.Policy_Statement;
 
@@ -70,10 +63,10 @@ const Sb = ({ ekok }) => {
                     // }
                     const parts = ekok.OFF_NAME.split('-');
                     const figCore = 10000000;
-                    const figLac = 100000;
+
                     const ph = {
                         name: parts[0],
-                        target: (parts[1]),
+                        target: (parts[1]) / figCore,
                         business: (parts[2]),
                         ratio: (parts[3]),
                         re_target: (parts[4]),
@@ -82,6 +75,7 @@ const Sb = ({ ekok }) => {
                         t_bus: (parts[7]),
                         t_target: (parts[8]),
                         t_ratio: (parts[9])
+
                     };
                     return ph;
                 });
@@ -90,16 +84,18 @@ const Sb = ({ ekok }) => {
 
             })
     }, [])
+    // RENUAL DATA ================================================
+
+
+
     return (
-
         <div>
-
-            <button style={{ fontSize: '12px' }} className='btn rounded btn-success drop-shadow-lg bg-[#087f23] btn-md text-white m-1'><b>FIRST YEAR TARGET VS BUSINESS</b></button>
+            <button style={{ fontSize: '14px' }} className='btn rounded btn-success drop-shadow-lg bg-[#087f23] btn-md text-white m-1'><b>FIRST YEAR TARGET VS BUSINESS</b></button>
             {/* <img className='rounded-circle shadow bg-white p-3 m-3' style={{ width: '100px', height: '100px' }} src={logo} alt="" /> */}
-            {/* <h6 className='mb-0 text-success'> <b style={{ fontWeight: 'bold' }} >FIRST YEAR BUSINESS</b>  INFORMATION-2022</h6> */}
-            {/* <p className='mb-0 text-success'>(All DIVISION-SB)</p> */}
-            <div className="row container-fluid mt-0 p-0">
-                <div class="shadow p-3 mb-2 bg-body rounded">
+            {/* <h6 className='mb-0 text-success'> <b style={{ fontWeight: 'bold' }}>BUSINESS</b>  INFORMATION-2022</h6>
+            <p className='mb-0 text-success'>(All DIVISION-EKOK)</p> */}
+            <div className="row container-fluid justify-content-center p-1">
+                <div class="shadow p-3 m-0 mb-2 bg-body rounded">
                     <div className=" col-md-12 mt-0">
                         <div style={{ width: "100%", height: "220px", marginTop: '0px', background: '#eceff1' }}>
                             <ResponsiveContainer>
@@ -142,13 +138,8 @@ const Sb = ({ ekok }) => {
                                         barSize={25}
                                         fill="#00600f"
                                         yAxisId="left"
-                                        tick={{ fill: 'dark' }}
                                         legendType="rect"
                                         name="Business"
-                                        layout={'vertical'}
-                                        barGap={20}
-                                        barCategoryGap={16}
-                                        margin={{ top: 0, right: 0, bottom: 0, left: 20 }}
                                         label={{ position: 'top' }}
                                     />
                                     <Line
@@ -158,10 +149,11 @@ const Sb = ({ ekok }) => {
                                         strokeLinecap="round"
                                         type="monotone"
                                         dataKey="ratio"
-                                        stroke="#005005"
+                                        stroke="#ffab40"
                                         yAxisId="right"
                                         color='#fff'
                                         name='Ratio'
+
                                         legendType="rect"
 
                                     />
@@ -170,7 +162,7 @@ const Sb = ({ ekok }) => {
                                         yAxisId="left"
                                         axisLine={{ stroke: "#f5f5f5" }}
                                         unit="C"
-                                        tickCount={15}
+                                        tickCount={100}
                                     />
                                     <YAxis
                                         tickLine={false}
@@ -190,25 +182,26 @@ const Sb = ({ ekok }) => {
             </div>
 
 
-            <button style={{ fontSize: '12px' }} className='btn rounded btn-success drop-shadow-lg bg-[#087f23] btn-md text-white m-1'><b >RENEWAL TARGET VS BUSINESS</b></button>
+            <button style={{ fontSize: '14px' }} className='btn rounded btn-success drop-shadow-lg bg-[#087f23] btn-md text-white m-1'><b >RENEWAL TARGET VS BUSINESS</b></button>
 
             {/* <h6 className='mb-0 text-success'> <b style={{ fontWeight: 'bold' }}>RENEWAL</b>  BUSINESS INFORMATION-2022</h6>
-            <p className='mb-0 text-success'>(All DIVISION-SB)</p> */}
-            <div className="row  p-0">
-                <div class="shadow p-3 container-fluid  mb-2 bg-body rounded">
+            <p className='mb-0 text-success'>(All DIVISION-EKOK)</p> */}
+            <div className="row container-fluid p-1">
+                <div class="shadow p-3 m-0 mb-1 bg-body rounded">
                     <div className=" col-md-12 mt-0">
                         <div style={{ width: "100%", height: "220px", marginTop: '0px', background: '#eceff1' }}>
                             <ResponsiveContainer>
                                 <ComposedChart
                                     width={1000}
                                     height={500}
-                                    data={ReData}
+                                    data={reData}
                                     margin={{
                                         top: 0,
                                         right: 0,
                                         left: 0,
                                         bottom: 0
                                     }}
+
                                 >
 
                                     <XAxis
@@ -218,13 +211,13 @@ const Sb = ({ ekok }) => {
                                         axisLine={{ stroke: "#333" }}
                                     />
                                     <Tooltip />
-                                    <Legend verticalAlign="top" align="left" height={165} />
+                                    <Legend verticalAlign="top" align="left" height={40} />
 
                                     <Bar
                                         radius={[0, 0, 0, 0]}
                                         dataKey="re_target"
                                         barSize={30}
-                                        fill="#003d00"
+                                        fill="#0088a3"
                                         yAxisId="left"
                                         tick={{ fill: 'dark' }}
                                         legendType="rect"
@@ -236,7 +229,7 @@ const Sb = ({ ekok }) => {
                                         radius={[0, 0, 0, 0]}
                                         dataKey="re_business"
                                         barSize={25}
-                                        fill="#0088a3"
+                                        fill="#004ba0"
                                         yAxisId="left"
                                         legendType="rect"
                                         name="R_Bus"
@@ -249,7 +242,7 @@ const Sb = ({ ekok }) => {
                                         strokeLinecap="round"
                                         type="monotone"
                                         dataKey="re_ratio"
-                                        stroke="#ffab40"
+                                        stroke="#82ba00"
                                         yAxisId="right"
                                         color='#fff'
                                         name='R_Ratio'
@@ -281,20 +274,19 @@ const Sb = ({ ekok }) => {
             </div>
 
 
-
-            <button style={{ fontSize: '12px' }} className='btn rounded btn-success drop-shadow-lg bg-[#087f23] btn-md text-white m-1'><b>TOTAL TARGET VS BUSINESS</b></button>
+            <button style={{ fontSize: '14px' }} className='btn rounded btn-success drop-shadow-lg bg-[#087f23] btn-md text-white m-1'><b>TOTAL TARGET VS BUSINESS</b></button>
 
             {/* <h6 className='mb-0 text-success'> <b style={{ fontWeight: 'bold' }}>TOTAL</b>  BUSINESS INFORMATION-2022</h6>
-            <p className='mb-0 text-success'>(All DIVISION-SB)</p> */}
-            <div className="row  p-0">
+            <p className='mb-0 text-success'>(All DIVISION-EKOK)</p> */}
+            <div className="row container-fluid p-1">
                 <div class="shadow p-3  mb-5 bg-body rounded">
                     <div className=" col-md-12 mt-0">
-                        <div style={{ width: "100%", height: "270px", marginTop: '0px', background: '#eceff1' }}>
+                        <div style={{ width: "100%", height: "220px", marginTop: '0px', background: '#ffebee' }}>
                             <ResponsiveContainer>
                                 <ComposedChart
                                     width={1000}
                                     height={500}
-                                    data={ReData}
+                                    data={reData}
                                     margin={{
                                         top: 0,
                                         right: 0,
@@ -310,13 +302,13 @@ const Sb = ({ ekok }) => {
                                         axisLine={{ stroke: "#333" }}
                                     />
                                     <Tooltip />
-                                    <Legend verticalAlign="top" align="left" height={125} />
+                                    <Legend verticalAlign="top" align="left" height={75} />
 
                                     <Bar
                                         radius={[0, 0, 0, 0]}
                                         dataKey="t_target"
                                         barSize={30}
-                                        fill="#49599a"
+                                        fill="#0068ba"
                                         yAxisId="left"
                                         tick={{ fill: 'dark' }}
                                         legendType="rect"
@@ -328,23 +320,22 @@ const Sb = ({ ekok }) => {
                                         radius={[0, 0, 0, 0]}
                                         dataKey="t_bus"
                                         barSize={25}
-                                        fill="#102027"
+                                        fill="#5cac50"
                                         yAxisId="left"
                                         legendType="rect"
                                         name="T_Bus"
-
                                         label={{ position: 'top' }}
                                     />
                                     <Line
                                         dot={true}
-                                        activeDot={{ r: 10 }}
                                         strokeWidth={3}
                                         strokeLinecap="round"
                                         type="monotone"
                                         dataKey="t_ratio"
-                                        stroke="#005005"
+                                        stroke="#004f00"
                                         yAxisId="right"
-                                        color='#fff'
+                                        color='#333'
+                                        activeDot={{ r: 10 }}
                                         name='T_Ratio'
                                         legendType="rect"
 
@@ -372,8 +363,13 @@ const Sb = ({ ekok }) => {
                     </div>
                 </div>
             </div>
-        </div>
+
+
+
+
+
+        </div >
     );
 };
 
-export default Sb;
+export default Total;
