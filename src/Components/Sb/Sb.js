@@ -161,7 +161,7 @@ const Sb = ({ ekok }) => {
                                         stroke="#005005"
                                         yAxisId="right"
                                         color='#fff'
-                                        name='Ratio'
+                                        name='Achievement'
                                         legendType="rect"
 
                                     />
@@ -252,7 +252,7 @@ const Sb = ({ ekok }) => {
                                         stroke="#ffab40"
                                         yAxisId="right"
                                         color='#fff'
-                                        name='R_Ratio'
+                                        name='Achievement'
                                         legendType="rect"
 
                                     />
@@ -345,7 +345,7 @@ const Sb = ({ ekok }) => {
                                         stroke="#005005"
                                         yAxisId="right"
                                         color='#fff'
-                                        name='T_Ratio'
+                                        name='Achievement'
                                         legendType="rect"
 
                                     />

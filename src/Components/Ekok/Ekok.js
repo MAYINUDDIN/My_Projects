@@ -99,7 +99,7 @@ const Ekok = () => {
             <div className="row container-fluid justify-content-center p-1">
                 <div class="shadow p-3 m-0 mb-2 bg-body rounded">
                     <div className=" col-md-12 mt-0">
-                        <div style={{ width: "100%", height: "220px", marginTop: '0px', background: '#eceff1' }}>
+                        <div style={{ width: "100%", height: "220px", marginTop: '0px', background: '#fafafa' }}>
                             <ResponsiveContainer>
                                 <ComposedChart
                                     width={1000}
@@ -154,8 +154,7 @@ const Ekok = () => {
                                         stroke="#ffab40"
                                         yAxisId="right"
                                         color='#fff'
-                                        name='Ratio'
-
+                                        name='Achievement'
                                         legendType="rect"
 
                                     />
@@ -191,7 +190,7 @@ const Ekok = () => {
             <div className="row container-fluid p-1">
                 <div class="shadow p-3 m-0 mb-1 bg-body rounded">
                     <div className=" col-md-12 mt-0">
-                        <div style={{ width: "100%", height: "220px", marginTop: '0px', background: '#eceff1' }}>
+                        <div style={{ width: "100%", height: "220px", marginTop: '0px', background: '#fafafa' }}>
                             <ResponsiveContainer>
                                 <ComposedChart
                                     width={1000}
@@ -247,7 +246,7 @@ const Ekok = () => {
                                         stroke="#82ba00"
                                         yAxisId="right"
                                         color='#fff'
-                                        name='R_Ratio'
+                                        name='Achievement'
                                         legendType="rect"
 
                                     />
@@ -283,7 +282,7 @@ const Ekok = () => {
             <div className="row container-fluid p-1">
                 <div class="shadow p-3  mb-5 bg-body rounded">
                     <div className=" col-md-12 mt-0">
-                        <div style={{ width: "100%", height: "220px", marginTop: '0px', background: '#ffebee' }}>
+                        <div style={{ width: "100%", height: "220px", marginTop: '0px', background: '#fafafa' }}>
                             <ResponsiveContainer>
                                 <ComposedChart
                                     width={1000}
@@ -338,8 +337,9 @@ const Ekok = () => {
                                         yAxisId="right"
                                         color='#333'
                                         activeDot={{ r: 10 }}
-                                        name='T_Ratio'
+                                        name='Achievement'
                                         legendType="rect"
+                                    // label={{ position: 'top' }}
 
                                     />
                                     <YAxis
