@@ -1,18 +1,16 @@
 import React, { useEffect, useState } from 'react';
 
 const useData = () => {
-    const [ekokdata, setEkokdata] = useState([]);
+    const [ekokdataa, setEkokdataa] = useState([]);
 
     useEffect(() => {
-        fetch('http://202.164.213.67/payment/business.php')
+        fetch('http://202.164.213.67/payment/businesss.php')
             .then(res => res.json())
-            .then(data => setEkokdata(data))
+            .then(data => setEkokdataa(data))
 
-    }, [ekokdata])
+    }, []);
 
-
-
-    return [ekokdata, setEkokdata];
+    return [ekokdataa, setEkokdataa]
 
 
 

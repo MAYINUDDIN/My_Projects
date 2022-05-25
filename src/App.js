@@ -2,6 +2,9 @@
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import Ekok from './Components/Ekok/Ekok';
+import Div from './Components/EkokSc/Div';
+
+import EkokSc from './Components/EkokSc/EkokSc';
 import Header from './Components/Header/Header';
 import Notfound from './Components/NotFound/Notfound';
 import Sb from './Components/Sb/Sb';
@@ -17,6 +20,9 @@ function App() {
         <Route path='/' element={<Ekok></Ekok>}>EKOK</Route>
         <Route path='/Sb-office' element={<Sb></Sb>}>SB</Route>
         <Route path='/Total_Business' element={<Total></Total>}>SB</Route>
+        <Route path='/SC_EKOK_Business' element={<EkokSc></EkokSc>}>ekoksc</Route>
+        <Route path='/DIV_CODE=:id' element={<Div></Div>}>Div</Route>
+
         <Route path='*' element={<Notfound></Notfound>}></Route>
 
       </Routes>

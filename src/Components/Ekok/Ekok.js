@@ -4,12 +4,25 @@ import { Tooltip, CartesianGrid, Legend, Line, LineChart, XAxis, YAxis, PieChart
 import './Ekok.css'
 import useData from '../useData/useData';
 import axios from 'axios';
+import { Link, NavLink } from 'react-router-dom';
+import Sb from '../Sb/Sb';
+import EkokSc from '../EkokSc/EkokSc';
+import Etest from '../EkokSc/Etest';
 
 
 const Ekok = () => {
 
+
+    const [ekokdataa] = useData();
+    const itemProducts = ekokdataa;
+    console.log(itemProducts);
+
+    // console.log(data.Policy_Statement);
     const [ekokData, setEkokData] = useState([]);
     const [reData, setReData] = useState([]);
+
+
+
     useEffect(() => {
         axios.get('http://202.164.213.67/payment/business.php')
             .then(data => {
@@ -17,31 +30,21 @@ const Ekok = () => {
 
                 const phoneData = loadedData.map(ekok => {
 
-                    // const office = {
-                    //     ofc: ekok.OFF_NAME
-
-                    // }
-
-                    // const fy_b = {
-                    //     fb: ekok.FY_BUSINESS
-                    // }
-                    // const fy_t = {
-                    //     ft: ekok.FY_TARGET
-                    // }
+                    const o_code = ekok.OFF_CODE;
                     const partss = ekok.OFF_NAME.split('-');
                     const figCore = 10000000;
                     const figLac = 1000000;
                     const ph = {
-                        name: partss[0],
-                        target: (partss[1]) / figCore,
-                        business: (partss[2]),
-                        ratio: (partss[3]),
+                        off_code: partss[0],
+                        name: partss[1],
+                        target: (partss[2]) / figCore,
+                        business: (partss[3]),
+                        ratio: (partss[4]),
                     };
                     return ph;
                 });
                 setEkokData(phoneData);
-                console.log(phoneData);
-
+                // console.log(phoneData);
             })
     }, [])
 
@@ -53,37 +56,29 @@ const Ekok = () => {
 
                 const phoneData = loadedData.map(ekok => {
 
-                    // const office = {
-                    //     ofc: ekok.OFF_NAME
 
-                    // }
-
-                    // const fy_b = {
-                    //     fb: ekok.FY_BUSINESS
-                    // }
-                    // const fy_t = {
-                    //     ft: ekok.FY_TARGET
-                    // }
                     const parts = ekok.OFF_NAME.split('-');
                     const figCore = 10000000;
 
                     const ph = {
-                        name: parts[0],
-                        target: (parts[1]) / figCore,
-                        business: (parts[2]),
-                        ratio: (parts[3]),
-                        re_target: (parts[4]),
-                        re_business: (parts[5]),
-                        re_ratio: (parts[6]),
-                        t_bus: (parts[7]),
-                        t_target: (parts[8]),
-                        t_ratio: (parts[9])
+                        off_code: parts[0],
+                        name: parts[1],
+                        target: (parts[2]) / figCore,
+                        business: (parts[3]),
+                        ratio: (parts[4]),
+                        re_target: (parts[5]),
+                        re_business: (parts[6]),
+                        re_ratio: (parts[7]),
+                        t_bus: (parts[8]),
+                        t_target: (parts[9]),
+                        t_ratio: (parts[10])
 
                     };
                     return ph;
                 });
                 setReData(phoneData);
                 console.log(phoneData);
+
 
             })
     }, [])
@@ -100,11 +95,13 @@ const Ekok = () => {
                 <div class="shadow p-3 m-0 mb-2 bg-body rounded">
                     <div className=" col-md-12 mt-0">
                         <div style={{ width: "100%", height: "220px", marginTop: '0px', background: '#fafafa' }}>
+
                             <ResponsiveContainer>
                                 <ComposedChart
                                     width={1000}
                                     height={500}
                                     data={ekokData}
+
                                     margin={{
                                         top: 0,
                                         right: 0,
@@ -113,16 +110,19 @@ const Ekok = () => {
                                     }}
                                 >
 
-                                    <XAxis
+                                    {/* <XAxis
                                         tick={{ fill: 'dark' }}
                                         dataKey="name"
                                         tickLine={false}
                                         axisLine={{ stroke: "#333" }}
-                                    />
+                                    /> */}
+
                                     <Tooltip />
-                                    <Legend verticalAlign="top" align="left" height={40} />
+                                    <Legend verticalAlign="top" align="left" height={60} />
+
 
                                     <Bar
+
                                         radius={[0, 0, 0, 0]}
                                         dataKey="target"
                                         barSize={30}
@@ -163,7 +163,7 @@ const Ekok = () => {
                                         yAxisId="left"
                                         axisLine={{ stroke: "#f5f5f5" }}
                                         unit="C"
-                                        tickCount={100}
+                                        tickCount={10}
                                     />
                                     <YAxis
                                         tickLine={false}
@@ -176,14 +176,28 @@ const Ekok = () => {
                                     // tickCount={5}
                                     />
                                 </ComposedChart>
+
                             </ResponsiveContainer>
+
                         </div>
+
+
+
+                        {<div className='flex justify-center justify-evenly px-10 mt-1'>
+                            {
+                                itemProducts.map(product => <Etest key={product.id} product={product}></Etest>)
+
+                            }
+
+                        </div>}
+
+
                     </div>
                 </div>
             </div>
 
 
-            <button style={{ fontSize: '14px' }} className='btn rounded btn-success drop-shadow-lg bg-[#087f23] btn-md text-white m-1'><b >RENEWAL TARGET VS BUSINESS</b></button>
+            <button style={{ fontSize: '14px' }} className='btn rounded btn-success drop-shadow-lg bg-[#087f23] btn-sm text-white m-1'><b >RENEWAL TARGET VS BUSINESS</b></button>
 
             {/* <h6 className='mb-0 text-success'> <b style={{ fontWeight: 'bold' }}>RENEWAL</b>  BUSINESS INFORMATION-2022</h6>
             <p className='mb-0 text-success'>(All DIVISION-EKOK)</p> */}
