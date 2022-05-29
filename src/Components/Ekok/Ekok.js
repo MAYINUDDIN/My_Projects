@@ -6,7 +6,6 @@ import useData from '../useData/useData';
 import axios from 'axios';
 import { Link, NavLink } from 'react-router-dom';
 import Sb from '../Sb/Sb';
-import EkokSc from '../EkokSc/EkokSc';
 import Etest from '../EkokSc/Etest';
 
 
@@ -24,9 +23,9 @@ const Ekok = () => {
 
 
     useEffect(() => {
-        axios.get('http://202.164.213.67/payment/business.php')
+        axios.get('http://202.164.213.67/payment/businesss.php')
             .then(data => {
-                const loadedData = data.data.Policy_Statement;
+                const loadedData = data.data;
 
                 const phoneData = loadedData.map(ekok => {
 
@@ -50,9 +49,9 @@ const Ekok = () => {
 
     // RENUAL DATA ================================================
     useEffect(() => {
-        axios.get('http://202.164.213.67/payment/business.php')
+        axios.get('http://202.164.213.67/payment/businesss.php')
             .then(data => {
-                const loadedData = data.data.Policy_Statement;
+                const loadedData = data.data;
 
                 const phoneData = loadedData.map(ekok => {
 
@@ -87,7 +86,7 @@ const Ekok = () => {
     return (
 
         <div>
-            <button style={{ fontSize: '14px' }} className='btn rounded btn-success drop-shadow-lg bg-[#087f23] btn-md text-white m-1'><b>FIRST YEAR TARGET VS BUSINESS</b></button>
+            <button style={{ fontSize: '14px' }} className='btn rounded btn-success drop-shadow-lg bg-[#087f23] btn-sm text-white m-1'><b>FIRST YEAR TARGET VS BUSINESS (DIVISION)</b></button>
             {/* <img className='rounded-circle shadow bg-white p-3 m-3' style={{ width: '100px', height: '100px' }} src={logo} alt="" /> */}
             {/* <h6 className='mb-0 text-success'> <b style={{ fontWeight: 'bold' }}>BUSINESS</b>  INFORMATION-2022</h6>
             <p className='mb-0 text-success'>(All DIVISION-EKOK)</p> */}
@@ -113,12 +112,18 @@ const Ekok = () => {
                                     {/* <XAxis
                                         tick={{ fill: 'dark' }}
                                         dataKey="name"
+                                        tickLine={true}
+                                        axisLine={{ stroke: "#000000" }}
+                                    /> */}
+
+                                    {/* <XAxis
                                         tickLine={false}
+
                                         axisLine={{ stroke: "#333" }}
                                     /> */}
 
                                     <Tooltip />
-                                    <Legend verticalAlign="top" align="left" height={60} />
+                                    <Legend verticalAlign="top" align="left" height={80} />
 
 
                                     <Bar
@@ -183,13 +188,13 @@ const Ekok = () => {
 
 
 
-                        {<div className='flex justify-center justify-evenly px-10 mt-1'>
+                        <div className='flex justify-center justify-evenly px-10 mt-1'>
                             {
                                 itemProducts.map(product => <Etest key={product.id} product={product}></Etest>)
 
                             }
 
-                        </div>}
+                        </div>
 
 
                     </div>
@@ -197,7 +202,7 @@ const Ekok = () => {
             </div>
 
 
-            <button style={{ fontSize: '14px' }} className='btn rounded btn-success drop-shadow-lg bg-[#087f23] btn-sm text-white m-1'><b >RENEWAL TARGET VS BUSINESS</b></button>
+            <button style={{ fontSize: '14px' }} className='btn rounded btn-success drop-shadow-lg bg-[#087f23] btn-sm text-white m-1'><b >RENEWAL TARGET VS BUSINESS (DIVISION)</b></button>
 
             {/* <h6 className='mb-0 text-success'> <b style={{ fontWeight: 'bold' }}>RENEWAL</b>  BUSINESS INFORMATION-2022</h6>
             <p className='mb-0 text-success'>(All DIVISION-EKOK)</p> */}
@@ -289,7 +294,7 @@ const Ekok = () => {
             </div>
 
 
-            <button style={{ fontSize: '14px' }} className='btn rounded btn-success drop-shadow-lg bg-[#087f23] btn-md text-white m-1'><b>TOTAL TARGET VS BUSINESS</b></button>
+            <button style={{ fontSize: '14px' }} className='btn rounded btn-success drop-shadow-lg bg-[#087f23] btn-sm text-white m-1'><b>TOTAL TARGET VS BUSINESS (DIVISION)</b></button>
 
             {/* <h6 className='mb-0 text-success'> <b style={{ fontWeight: 'bold' }}>TOTAL</b>  BUSINESS INFORMATION-2022</h6>
             <p className='mb-0 text-success'>(All DIVISION-EKOK)</p> */}

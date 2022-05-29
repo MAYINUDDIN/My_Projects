@@ -1,119 +1,63 @@
-import React, { useEffect, useState } from 'react';
-import logo from '../icon/logo.png'
-
-import generateDate from '../generateData';
-
-import {
-    ResponsiveContainer, ComposedChart, Line, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, Area, Scatter
-} from "recharts";
 import axios from 'axios';
-import { NumberFormatter } from '@amcharts/amcharts5';
-import ScValue from './ScValue';
-import useSB from '../useData/useSB';
+import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
+import { Bar, ComposedChart, Legend, Line, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts';
+import ZoneSbValue from './ZoneSbValue';
 
-const Sb = () => {
-
-    const [sbdataa] = useSB();
-    const itemProduct = sbdataa;
-    // console.log(itemProduct);
-
-
+const SbScResult = () => {
+    const { id } = useParams();
+    console.log(id);
     const [ekokData, setEkokData] = useState([]);
-    const [ReData, setReData] = useState([]);
+
     useEffect(() => {
-        axios.get('http://202.164.213.67/payment/business_sb.php')
+        axios.get(`http://202.164.213.67/payment/sc_sb.php?DIV_CODE=${id}`)
             .then(data => {
-                const loadedData = data.data;
+                const loadedData = data.data.Policy_Statement;
 
-                const phoneData = loadedData.map(ekok => {
+                console.log(loadedData);
 
-                    // const office = {
-                    //     ofc: ekok.OFF_NAME
+                const ekokScData = loadedData.map(ekok => {
 
-                    // }
-
-                    // const fy_b = {
-                    //     fb: ekok.FY_BUSINESS
-                    // }
-                    // const fy_t = {
-                    //     ft: ekok.FY_TARGET
-                    // }
-                    const parts = ekok.OFF_NAME.split('-');
-                    const figCore = 10000000;
-                    const figLac = 100000;
-
-
-                    const ph = {
-                        name: parts[0],
-                        // target: parseInt(parts[1], 10) / figCore,
-                        target: (parts[1]),
-                        business: (parts[2]),
-                        ratio: (parts[3]),
-                    };
-                    return ph;
-                });
-                setEkokData(phoneData);
-                // console.log(phoneData);
-
-            })
-    }, [])
-    useEffect(() => {
-        axios.get('http://202.164.213.67/payment/business_sb.php')
-            .then(data => {
-                const loadedData = data.data;
-
-                const phoneData = loadedData.map(ekok => {
-
-                    // const office = {
-                    //     ofc: ekok.OFF_NAME
-
-                    // }
-
-                    // const fy_b = {
-                    //     fb: ekok.FY_BUSINESS
-                    // }
-                    // const fy_t = {
-                    //     ft: ekok.FY_TARGET
-                    // }
-                    const parts = ekok.OFF_NAME.split('-');
+                    // const d = ekok.SC_id;
+                    // const { name } = ekok.SC_NAME;
+                    // console.log(d);
+                    // console.log(name);
+                    const partss = ekok.OFF_NAME.split('-');
                     const figCore = 10000000;
                     const figLac = 100000;
                     const ph = {
-                        name: parts[0],
-                        target: (parts[1]),
-                        business: (parts[2]),
-                        ratio: (parts[3]),
-                        re_target: (parts[4]),
-                        re_business: (parts[5]),
-                        re_ratio: (parts[6]),
-                        t_bus: (parts[7]),
-                        t_target: (parts[8]),
-                        t_ratio: (parts[9])
+                        off_code: partss[0],
+                        name: partss[1],
+                        fy_Target: (partss[2]),
+                        fy_business: (partss[3]),
+                        re_target: (partss[4]),
+                        re_business: (partss[5]),
+                        t_target: (partss[6]),
+                        t_business: (partss[7])
                     };
                     return ph;
                 });
-                setReData(phoneData);
-                // console.log(phoneData);
-
+                setEkokData(ekokScData);
+                // console.log(ekokScData);
             })
     }, [])
+
     return (
-
         <div>
+            <div>
 
-            <button style={{ fontSize: '12px' }} className='btn rounded btn-success drop-shadow-lg bg-[#087f23] btn-md text-white m-1'><b>FIRST YEAR TARGET VS BUSINESS</b></button>
-            {/* <img className='rounded-circle shadow bg-white p-3 m-3' style={{ width: '100px', height: '100px' }} src={logo} alt="" /> */}
-            {/* <h6 className='mb-0 text-success'> <b style={{ fontWeight: 'bold' }} >FIRST YEAR BUSINESS</b>  INFORMATION-2022</h6> */}
-            {/* <p className='mb-0 text-success'>(All DIVISION-SB)</p> */}
-            <div className="row container-fluid mt-0 p-0">
-                <div class="shadow p-3 mb-2 bg-body rounded">
-                    <div className=" col-md-12 mt-0">
-                        <div style={{ width: "100%", height: "220px", marginTop: '0px', background: '#eceff1' }}>
+                <h2 className='p-3 font-bold drop-shadow text-success text-lg'>DIVISION TO SERVICE CENTER BUSINESS REPORT</h2>
+                <div className="row flex m-2">
+                    <div className="col-md-6 shadow p-1">
+                        <button style={{ fontSize: '14px' }} className='btn rounded mb-2 btn-success drop-shadow-lg bg-[#087f23] btn-sm text-white m-1'><b>FIRST YEAR TARGET VS BUSINESS (SC-SB) <span className='text-warning'></span>  </b></button>
+
+                        <div style={{ width: "100%", height: "250px", marginTop: '0px', background: '#fafafa' }}>
                             <ResponsiveContainer>
                                 <ComposedChart
                                     width={1000}
                                     height={500}
                                     data={ekokData}
+
                                     margin={{
                                         top: 0,
                                         right: 0,
@@ -128,34 +72,31 @@ const Sb = () => {
                                         tickLine={false}
                                         axisLine={{ stroke: "#333" }}
                                     />
+
                                     <Tooltip />
-                                    <Legend verticalAlign="top" align="left" height={40} />
+                                    <Legend verticalAlign="top" align="left" height={60} />
+
 
                                     <Bar
                                         radius={[0, 0, 0, 0]}
-                                        dataKey="target"
+                                        dataKey="fy_Target"
                                         barSize={30}
-                                        fill="#0031ca"
+                                        fill="#00766c"
                                         yAxisId="left"
                                         tick={{ fill: 'dark' }}
                                         legendType="rect"
-                                        name="Target"
+                                        name="FY_Target"
                                         label={{ position: 'top' }}
                                     />
 
                                     <Bar
                                         radius={[0, 0, 0, 0]}
-                                        dataKey="business"
+                                        dataKey="fy_business"
                                         barSize={25}
-                                        fill="#00600f"
+                                        fill="#00b248"
                                         yAxisId="left"
-                                        tick={{ fill: 'dark' }}
                                         legendType="rect"
-                                        name="Business"
-                                        layout={'vertical'}
-                                        barGap={20}
-                                        barCategoryGap={16}
-                                        margin={{ top: 0, right: 0, bottom: 0, left: 20 }}
+                                        name="FY_Business"
                                         label={{ position: 'top' }}
                                     />
                                     <Line
@@ -165,106 +106,6 @@ const Sb = () => {
                                         strokeLinecap="round"
                                         type="monotone"
                                         dataKey="ratio"
-                                        stroke="#005005"
-                                        yAxisId="right"
-                                        color='#fff'
-                                        name='Achievement'
-                                        legendType="rect"
-
-                                    />
-                                    <YAxis
-                                        tickLine={false}
-                                        yAxisId="left"
-                                        axisLine={{ stroke: "#f5f5f5" }}
-                                        unit="C"
-                                        tickCount={15}
-                                    />
-                                    <YAxis
-                                        tickLine={false}
-                                        yAxisId="right"
-                                        orientation="right"
-                                        stroke="#3B7AD9"
-                                        axisLine={{ stroke: "#f5f5f5" }}
-                                    // unit="K"
-                                    // domain={[5, "dataMax + 5"]}
-                                    // tickCount={5}
-                                    />
-                                </ComposedChart>
-                            </ResponsiveContainer>
-                        </div>
-
-                        <div className='flex justify-center justify-evenly px-12 mt-1'>
-                            {
-                                // itemProduct.map(product => <ScValue key={product.id} product={product}></ScValue>)
-                                itemProduct.map(p => <ScValue key={p.id} p={p}></ScValue>)
-
-                            }
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-
-            <button style={{ fontSize: '12px' }} className='btn rounded btn-success drop-shadow-lg bg-[#087f23] btn-md text-white m-1'><b >RENEWAL TARGET VS BUSINESS</b></button>
-
-            {/* <h6 className='mb-0 text-success'> <b style={{ fontWeight: 'bold' }}>RENEWAL</b>  BUSINESS INFORMATION-2022</h6>
-            <p className='mb-0 text-success'>(All DIVISION-SB)</p> */}
-            <div className="row  p-0">
-                <div class="shadow p-3 container-fluid  mb-2 bg-body rounded">
-                    <div className=" col-md-12 mt-0">
-                        <div style={{ width: "100%", height: "220px", marginTop: '0px', background: '#eceff1' }}>
-                            <ResponsiveContainer>
-                                <ComposedChart
-                                    width={1000}
-                                    height={500}
-                                    data={ReData}
-                                    margin={{
-                                        top: 0,
-                                        right: 0,
-                                        left: 0,
-                                        bottom: 0
-                                    }}
-                                >
-
-                                    <XAxis
-                                        tick={{ fill: 'dark' }}
-                                        dataKey="name"
-                                        tickLine={false}
-                                        axisLine={{ stroke: "#333" }}
-                                    />
-                                    <Tooltip />
-                                    <Legend verticalAlign="top" align="left" height={165} />
-
-                                    <Bar
-                                        radius={[0, 0, 0, 0]}
-                                        dataKey="re_target"
-                                        barSize={30}
-                                        fill="#003d00"
-                                        yAxisId="left"
-                                        tick={{ fill: 'dark' }}
-                                        legendType="rect"
-                                        name="R_Target"
-                                        label={{ position: 'top' }}
-                                    />
-
-                                    <Bar
-                                        radius={[0, 0, 0, 0]}
-                                        dataKey="re_business"
-                                        barSize={25}
-                                        fill="#0088a3"
-                                        yAxisId="left"
-                                        legendType="rect"
-                                        name="R_Bus"
-                                        label={{ position: 'top' }}
-                                    />
-                                    <Line
-                                        dot={true}
-                                        activeDot={{ r: 10 }}
-                                        strokeWidth={3}
-                                        strokeLinecap="round"
-                                        type="monotone"
-                                        dataKey="re_ratio"
                                         stroke="#ffab40"
                                         yAxisId="right"
                                         color='#fff'
@@ -290,27 +131,32 @@ const Sb = () => {
                                     // tickCount={5}
                                     />
                                 </ComposedChart>
+
                             </ResponsiveContainer>
+
                         </div>
+
+
+                        <div className='flex justify-center justify-evenly px-10 mt-1'>
+                            {
+                                ekokData.map(product => <ZoneSbValue key={product.id} product={product}></ZoneSbValue>)
+
+                            }
+
+                        </div>
+
                     </div>
-                </div>
-            </div>
+                    <div className="col-md-6 shadow bordered p-1">
+                        <button style={{ fontSize: '14px' }} className='btn rounded mb-2 btn-success drop-shadow-lg bg-[#087f23] btn-sm text-white m-1'><b>RENEWAL TARGET VS RENEWAL BUSINESS (SC-SB) <span className='text-warning'></span>  </b></button>
 
+                        <div style={{ width: "100%", height: "250px", marginTop: '0px', background: '#fafafa' }}>
 
-
-            <button style={{ fontSize: '12px' }} className='btn rounded btn-success drop-shadow-lg bg-[#087f23] btn-md text-white m-1'><b>TOTAL TARGET VS BUSINESS</b></button>
-
-            {/* <h6 className='mb-0 text-success'> <b style={{ fontWeight: 'bold' }}>TOTAL</b>  BUSINESS INFORMATION-2022</h6>
-            <p className='mb-0 text-success'>(All DIVISION-SB)</p> */}
-            <div className="row  p-0">
-                <div class="shadow p-3  mb-5 bg-body rounded">
-                    <div className=" col-md-12 mt-0">
-                        <div style={{ width: "100%", height: "270px", marginTop: '0px', background: '#eceff1' }}>
                             <ResponsiveContainer>
                                 <ComposedChart
                                     width={1000}
                                     height={500}
-                                    data={ReData}
+                                    data={ekokData}
+
                                     margin={{
                                         top: 0,
                                         right: 0,
@@ -325,30 +171,32 @@ const Sb = () => {
                                         tickLine={false}
                                         axisLine={{ stroke: "#333" }}
                                     />
+
                                     <Tooltip />
-                                    <Legend verticalAlign="top" align="left" height={125} />
+                                    <Legend verticalAlign="top" align="left" height={170} />
+
 
                                     <Bar
+
                                         radius={[0, 0, 0, 0]}
-                                        dataKey="t_target"
+                                        dataKey="re_target"
                                         barSize={30}
-                                        fill="#49599a"
+                                        fill="#4c96cc"
                                         yAxisId="left"
                                         tick={{ fill: 'dark' }}
                                         legendType="rect"
-                                        name="T_Target"
+                                        name="Re_Target"
                                         label={{ position: 'top' }}
                                     />
 
                                     <Bar
                                         radius={[0, 0, 0, 0]}
-                                        dataKey="t_bus"
+                                        dataKey="re_business"
                                         barSize={25}
-                                        fill="#102027"
+                                        fill="#ff6166"
                                         yAxisId="left"
                                         legendType="rect"
-                                        name="T_Bus"
-
+                                        name="Re_Business"
                                         label={{ position: 'top' }}
                                     />
                                     <Line
@@ -357,8 +205,8 @@ const Sb = () => {
                                         strokeWidth={3}
                                         strokeLinecap="round"
                                         type="monotone"
-                                        dataKey="t_ratio"
-                                        stroke="#005005"
+                                        dataKey="ratio"
+                                        stroke="#ffab40"
                                         yAxisId="right"
                                         color='#fff'
                                         name='Achievement'
@@ -383,13 +231,129 @@ const Sb = () => {
                                     // tickCount={5}
                                     />
                                 </ComposedChart>
+
                             </ResponsiveContainer>
+
+                        </div>
+                        <div className='flex justify-center justify-evenly px-6 mt-1'>
+                            {
+                                ekokData.map(product => <ZoneSbValue key={product.id} product={product}></ZoneSbValue>)
+
+                            }
+
                         </div>
                     </div>
                 </div>
+
+
+
+                <div className="row justify-center mt-5 mb-5">
+                    <div className="col-md-8 shadow bordered p-4">
+                        <button style={{ fontSize: '14px' }} className='btn rounded mb-2 btn-success drop-shadow-lg bg-[#087f23] btn-sm text-white m-1'><b>TOTAL TARGET VS TOTAL BUSINESS (SC-SB) <span className='text-warning'></span>  </b></button>
+
+                        <div style={{ width: "100%", height: "200px", marginTop: '0px', background: '#fafafa' }}>
+
+                            <ResponsiveContainer>
+                                <ComposedChart
+                                    width={1000}
+                                    height={500}
+                                    data={ekokData}
+
+                                    margin={{
+                                        top: 0,
+                                        right: 0,
+                                        left: 0,
+                                        bottom: 0
+                                    }}
+                                >
+
+                                    <XAxis
+                                        tick={{ fill: 'dark' }}
+                                        dataKey="name"
+                                        tickLine={false}
+                                        axisLine={{ stroke: "#333" }}
+                                    />
+
+                                    <Tooltip />
+                                    <Legend verticalAlign="top" align="left" height={10} />
+
+
+                                    <Bar
+
+                                        radius={[0, 0, 0, 0]}
+                                        dataKey="t_target"
+                                        barSize={30}
+                                        fill="#4c96cc"
+                                        yAxisId="left"
+                                        tick={{ fill: 'dark' }}
+                                        legendType="rect"
+                                        name="Total Target"
+                                        label={{ position: 'top' }}
+                                    />
+
+                                    <Bar
+                                        radius={[0, 0, 0, 0]}
+                                        dataKey="t_business"
+                                        barSize={25}
+                                        fill="#ff6166"
+                                        yAxisId="left"
+                                        legendType="rect"
+                                        name="Total Business"
+                                        label={{ position: 'top' }}
+                                    />
+                                    <Line
+                                        dot={true}
+                                        activeDot={{ r: 10 }}
+                                        strokeWidth={3}
+                                        strokeLinecap="round"
+                                        type="monotone"
+                                        dataKey="ratio"
+                                        stroke="#ffab40"
+                                        yAxisId="right"
+                                        color='#fff'
+                                        name='Achievement'
+                                        legendType="rect"
+
+                                    />
+                                    <YAxis
+                                        tickLine={false}
+                                        yAxisId="left"
+                                        axisLine={{ stroke: "#f5f5f5" }}
+                                        unit="C"
+                                        tickCount={10}
+                                    />
+                                    <YAxis
+                                        tickLine={false}
+                                        yAxisId="right"
+                                        orientation="right"
+                                        stroke="#3B7AD9"
+                                        axisLine={{ stroke: "#f5f5f5" }}
+                                    // unit="K"
+                                    // domain={[5, "dataMax + 5"]}
+                                    // tickCount={5}
+                                    />
+                                </ComposedChart>
+
+                            </ResponsiveContainer>
+
+                        </div>
+                        <div className='flex justify-center justify-evenly px-6 mt-1'>
+                            {
+                                ekokData.map(product => <ZoneSbValue key={product.id} product={product}></ZoneSbValue>)
+
+                            }
+
+                        </div>
+                    </div>
+                </div>
+
+
             </div>
+
+
+
         </div>
     );
 };
 
-export default Sb;
+export default SbScResult;

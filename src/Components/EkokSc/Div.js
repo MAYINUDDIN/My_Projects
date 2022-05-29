@@ -2,22 +2,27 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { Bar, ComposedChart, Legend, Line, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts';
+import ZoneValue from './EkokZone/ZoneValue';
 
 const Div = () => {
 
     const { id } = useParams();
     const [ekokData, setEkokData] = useState([]);
+
+
     useEffect(() => {
         axios.get(`http://202.164.213.67/payment/sc_ekok.php?DIV_CODE=${id}`)
             .then(data => {
                 const loadedData = data.data.Policy_Statement;
 
-                console.log(loadedData);
+                // console.log(loadedData);
 
                 const ekokScData = loadedData.map(ekok => {
 
-                    const d = ekok.SC_id;
-                    console.log(d);
+                    // const d = ekok.SC_id;
+                    // const { name } = ekok.SC_NAME;
+                    // console.log(d);
+                    // console.log(name);
                     const partss = ekok.OFF_NAME.split('-');
                     const figCore = 10000000;
                     const figLac = 100000;
@@ -32,20 +37,18 @@ const Div = () => {
                     return ph;
                 });
                 setEkokData(ekokScData);
-                console.log(ekokScData);
+                // console.log(ekokScData);
             })
     }, [])
     return (
         <div>
 
-
-            <button style={{ fontSize: '14px' }} className='btn rounded btn-success drop-shadow-lg bg-[#087f23] btn-md text-white m-1'><b>FIRST YEAR TARGET VS BUSINESS (SC-EKOK) <span className='text-warning'>CHITTAGONG</span>  </b></button>
-
+            <h2 className='p-3 font-bold drop-shadow text-success text-lg'>DIVISION TO SERVICE CENTER BUSINESS REPORT</h2>
             <div className="row flex m-2">
-
                 <div className="col-md-6 shadow p-1">
-                    <div style={{ width: "100%", height: "250px", marginTop: '0px', background: '#fafafa' }}>
+                    <button style={{ fontSize: '14px' }} className='btn rounded mb-2 btn-success drop-shadow-lg bg-[#087f23] btn-sm text-white m-1'><b>FIRST YEAR TARGET VS BUSINESS (SC-EKOK) <span className='text-warning'></span>  </b></button>
 
+                    <div style={{ width: "100%", height: "250px", marginTop: '0px', background: '#fafafa' }}>
                         <ResponsiveContainer>
                             <ComposedChart
                                 width={1000}
@@ -72,7 +75,6 @@ const Div = () => {
 
 
                                 <Bar
-
                                     radius={[0, 0, 0, 0]}
                                     dataKey="fy_Target"
                                     barSize={30}
@@ -130,8 +132,20 @@ const Div = () => {
                         </ResponsiveContainer>
 
                     </div>
+
+
+                    <div className='flex justify-center justify-evenly px-0 mt-1'>
+                        {
+                            ekokData.map(product => <ZoneValue key={product.id} product={product}></ZoneValue>)
+
+                        }
+
+                    </div>
+
                 </div>
                 <div className="col-md-6 shadow bordered p-1">
+                    <button style={{ fontSize: '14px' }} className='btn rounded mb-2 btn-success drop-shadow-lg bg-[#087f23] btn-sm text-white m-1'><b>RENEWAL TARGET VS RENEWAL BUSINESS (SC-EKOK) <span className='text-warning'></span>  </b></button>
+
                     <div style={{ width: "100%", height: "250px", marginTop: '0px', background: '#fafafa' }}>
 
                         <ResponsiveContainer>
@@ -216,6 +230,13 @@ const Div = () => {
                             </ComposedChart>
 
                         </ResponsiveContainer>
+
+                    </div>
+                    <div className='flex justify-center justify-evenly px-6 mt-1'>
+                        {
+                            ekokData.map(product => <ZoneValue key={product.id} product={product}></ZoneValue>)
+
+                        }
 
                     </div>
                 </div>

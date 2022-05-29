@@ -10,9 +10,6 @@ const Etest = ({ product }) => {
 
     const [ekokData, setEkokData] = useState([]);
 
-
-
-
     useEffect(() => {
         axios.get(`http://202.164.213.67/payment/sc_ekok.php?DIV_CODE=${OFF_CODE}`)
             .then(data => {
@@ -42,14 +39,9 @@ const Etest = ({ product }) => {
             })
     }, [])
 
-
-
-
-
     return (
         <div>
 
-            {/* <button className='btn rounded bordered btn-success text-xs drop-shadow-lg bg-[#087f23] btn-sm text-white'><NavLink code={102} to='/SC_EKOK_Business'>    Details {OFF_CODE}</NavLink></button> */}
             <Link to={`/DIV_CODE=${OFF_CODE}`}> <button class="btn rounded bordered btn-success text-xs drop-shadow-lg bg-[#087f23] btn-sm text-white">{OFF_NAMEE} </button></Link>
 
         </div>
