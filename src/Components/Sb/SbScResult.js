@@ -33,7 +33,10 @@ const SbScResult = () => {
                         re_target: (partss[4]),
                         re_business: (partss[5]),
                         t_target: (partss[6]),
-                        t_business: (partss[7])
+                        t_business: (partss[7]),
+                        fy_ratio: (partss[8]),
+                        re_ratio: (partss[9]),
+                        t_ratio: (partss[10])
                     };
                     return ph;
                 });
@@ -105,7 +108,7 @@ const SbScResult = () => {
                                         strokeWidth={3}
                                         strokeLinecap="round"
                                         type="monotone"
-                                        dataKey="ratio"
+                                        dataKey="fy_ratio"
                                         stroke="#ffab40"
                                         yAxisId="right"
                                         color='#fff'
@@ -175,9 +178,7 @@ const SbScResult = () => {
                                     <Tooltip />
                                     <Legend verticalAlign="top" align="left" height={170} />
 
-
                                     <Bar
-
                                         radius={[0, 0, 0, 0]}
                                         dataKey="re_target"
                                         barSize={30}
@@ -205,14 +206,14 @@ const SbScResult = () => {
                                         strokeWidth={3}
                                         strokeLinecap="round"
                                         type="monotone"
-                                        dataKey="ratio"
+                                        dataKey="re_ratio"
                                         stroke="#ffab40"
                                         yAxisId="right"
                                         color='#fff'
                                         name='Achievement'
                                         legendType="rect"
-
                                     />
+
                                     <YAxis
                                         tickLine={false}
                                         yAxisId="left"
@@ -275,7 +276,7 @@ const SbScResult = () => {
                                     />
 
                                     <Tooltip />
-                                    <Legend verticalAlign="top" align="left" height={10} />
+                                    <Legend verticalAlign="top" align="left" height={120} />
 
 
                                     <Bar
@@ -307,7 +308,7 @@ const SbScResult = () => {
                                         strokeWidth={3}
                                         strokeLinecap="round"
                                         type="monotone"
-                                        dataKey="ratio"
+                                        dataKey="t_ratio"
                                         stroke="#ffab40"
                                         yAxisId="right"
                                         color='#fff'

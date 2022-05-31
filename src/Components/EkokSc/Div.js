@@ -19,10 +19,6 @@ const Div = () => {
 
                 const ekokScData = loadedData.map(ekok => {
 
-                    // const d = ekok.SC_id;
-                    // const { name } = ekok.SC_NAME;
-                    // console.log(d);
-                    // console.log(name);
                     const partss = ekok.OFF_NAME.split('-');
                     const figCore = 10000000;
                     const figLac = 100000;
@@ -32,7 +28,12 @@ const Div = () => {
                         fy_Target: (partss[2]),
                         fy_business: (partss[3]),
                         re_target: (partss[4]),
-                        re_business: (partss[5])
+                        re_business: (partss[5]),
+                        t_target: (partss[6]),
+                        t_business: (partss[7]),
+                        fy_ratio: (partss[8]),
+                        re_ratio: (partss[9]),
+                        t_ratio: (partss[10])
                     };
                     return ph;
                 });
@@ -71,7 +72,7 @@ const Div = () => {
                                 />
 
                                 <Tooltip />
-                                <Legend verticalAlign="top" align="left" height={60} />
+                                <Legend verticalAlign="top" align="left" height={100} />
 
 
                                 <Bar
@@ -102,7 +103,7 @@ const Div = () => {
                                     strokeWidth={3}
                                     strokeLinecap="round"
                                     type="monotone"
-                                    dataKey="ratio"
+                                    dataKey="fy_ratio"
                                     stroke="#ffab40"
                                     yAxisId="right"
                                     color='#fff'
@@ -202,7 +203,7 @@ const Div = () => {
                                     strokeWidth={3}
                                     strokeLinecap="round"
                                     type="monotone"
-                                    dataKey="ratio"
+                                    dataKey="re_ratio"
                                     stroke="#ffab40"
                                     yAxisId="right"
                                     color='#fff'
@@ -244,195 +245,108 @@ const Div = () => {
 
 
 
-            {/* <img className='rounded-circle shadow bg-white p-3 m-3' style={{ width: '100px', height: '100px' }} src={logo} alt="" /> */}
-            {/* <h6 className='mb-0 text-success'> <b style={{ fontWeight: 'bold' }}>BUSINESS</b>  INFORMATION-2022</h6>
-            <p className='mb-0 text-success'>(All DIVISION-EKOK)</p> */}
-            {/* <div className="row  container-fluid justify-content-center p-1">
-                <div class="shadow p-3 m-0 mb-2 bg-body rounded">
-                    <div className=" col-md-6 mt-0">
-                        <div style={{ width: "100%", height: "220px", marginTop: '0px', background: '#fafafa' }}>
 
-                            <ResponsiveContainer>
-                                <ComposedChart
-                                    width={1000}
-                                    height={500}
-                                    data={ekokData}
+            <div className="row justify-center mt-5 mb-5">
+                <div className="col-md-8 shadow bordered p-4">
+                    <button style={{ fontSize: '14px' }} className='btn rounded mb-2 btn-success drop-shadow-lg bg-[#087f23] btn-sm text-white m-1'><b>TOTAL TARGET VS TOTAL BUSINESS (SC-SB) <span className='text-warning'></span>  </b></button>
 
-                                    margin={{
-                                        top: 0,
-                                        right: 0,
-                                        left: 0,
-                                        bottom: 0
-                                    }}
-                                >
+                    <div style={{ width: "100%", height: "200px", marginTop: '0px', background: '#fafafa' }}>
 
-                                    <XAxis
-                                        tick={{ fill: 'dark' }}
-                                        dataKey="name"
-                                        tickLine={false}
-                                        axisLine={{ stroke: "#333" }}
-                                    />
+                        <ResponsiveContainer>
+                            <ComposedChart
+                                width={1000}
+                                height={500}
+                                data={ekokData}
 
-                                    <Tooltip />
-                                    <Legend verticalAlign="top" align="left" height={60} />
+                                margin={{
+                                    top: 0,
+                                    right: 0,
+                                    left: 0,
+                                    bottom: 0
+                                }}
+                            >
+
+                                <XAxis
+                                    tick={{ fill: 'dark' }}
+                                    dataKey="name"
+                                    tickLine={false}
+                                    axisLine={{ stroke: "#333" }}
+                                />
+
+                                <Tooltip />
+                                <Legend verticalAlign="top" align="left" height={130} />
 
 
-                                    <Bar
+                                <Bar
 
-                                        radius={[0, 0, 0, 0]}
-                                        dataKey="fy_Target"
-                                        barSize={30}
-                                        fill="#0031ca"
-                                        yAxisId="left"
-                                        tick={{ fill: 'dark' }}
-                                        legendType="rect"
-                                        name="Target"
-                                        label={{ position: 'top' }}
-                                    />
+                                    radius={[0, 0, 0, 0]}
+                                    dataKey="t_target"
+                                    barSize={30}
+                                    fill="#4c96cc"
+                                    yAxisId="left"
+                                    tick={{ fill: 'dark' }}
+                                    legendType="rect"
+                                    name="Total Target"
+                                    label={{ position: 'top' }}
+                                />
 
-                                    <Bar
-                                        radius={[0, 0, 0, 0]}
-                                        dataKey="fy_business"
-                                        barSize={25}
-                                        fill="#00600f"
-                                        yAxisId="left"
-                                        legendType="rect"
-                                        name="Business"
-                                        label={{ position: 'top' }}
-                                    />
-                                    <Line
-                                        dot={true}
-                                        activeDot={{ r: 10 }}
-                                        strokeWidth={3}
-                                        strokeLinecap="round"
-                                        type="monotone"
-                                        dataKey="ratio"
-                                        stroke="#ffab40"
-                                        yAxisId="right"
-                                        color='#fff'
-                                        name='Achievement'
-                                        legendType="rect"
+                                <Bar
+                                    radius={[0, 0, 0, 0]}
+                                    dataKey="t_business"
+                                    barSize={25}
+                                    fill="#ff6166"
+                                    yAxisId="left"
+                                    legendType="rect"
+                                    name="Total Business"
+                                    label={{ position: 'top' }}
+                                />
+                                <Line
+                                    dot={true}
+                                    activeDot={{ r: 10 }}
+                                    strokeWidth={3}
+                                    strokeLinecap="round"
+                                    type="monotone"
+                                    dataKey="t_ratio"
+                                    stroke="#ffab40"
+                                    yAxisId="right"
+                                    color='#fff'
+                                    name='Achievement'
+                                    legendType="rect"
 
-                                    />
-                                    <YAxis
-                                        tickLine={false}
-                                        yAxisId="left"
-                                        axisLine={{ stroke: "#f5f5f5" }}
-                                        unit="C"
-                                        tickCount={100}
-                                    />
-                                    <YAxis
-                                        tickLine={false}
-                                        yAxisId="right"
-                                        orientation="right"
-                                        stroke="#3B7AD9"
-                                        axisLine={{ stroke: "#f5f5f5" }}
-                                    // unit="K"
-                                    // domain={[5, "dataMax + 5"]}
-                                    // tickCount={5}
-                                    />
-                                </ComposedChart>
+                                />
+                                <YAxis
+                                    tickLine={false}
+                                    yAxisId="left"
+                                    axisLine={{ stroke: "#f5f5f5" }}
+                                    unit="C"
+                                    tickCount={10}
+                                />
+                                <YAxis
+                                    tickLine={false}
+                                    yAxisId="right"
+                                    orientation="right"
+                                    stroke="#3B7AD9"
+                                    axisLine={{ stroke: "#f5f5f5" }}
+                                // unit="K"
+                                // domain={[5, "dataMax + 5"]}
+                                // tickCount={5}
+                                />
+                            </ComposedChart>
 
-                            </ResponsiveContainer>
+                        </ResponsiveContainer>
 
-                        </div>
+                    </div>
+                    <div className='flex justify-center justify-evenly px-6 mt-1'>
+                        {
+                            ekokData.map(product => <ZoneValue key={product.id} product={product}></ZoneValue>)
+
+                        }
+
                     </div>
                 </div>
+            </div>
 
 
-                <div class="shadow p-3 m-0 mb-2 bg-body rounded">
-                    <div className=" col-md-6 mt-0">
-                        <div style={{ width: "100%", height: "220px", marginTop: '0px', background: '#fafafa' }}>
-
-                            <ResponsiveContainer>
-                                <ComposedChart
-                                    width={1000}
-                                    height={500}
-                                    data={ekokData}
-
-                                    margin={{
-                                        top: 0,
-                                        right: 0,
-                                        left: 0,
-                                        bottom: 0
-                                    }}
-                                >
-
-                                    <XAxis
-                                        tick={{ fill: 'dark' }}
-                                        dataKey="name"
-                                        tickLine={false}
-                                        axisLine={{ stroke: "#333" }}
-                                    />
-
-                                    <Tooltip />
-                                    <Legend verticalAlign="top" align="left" height={60} />
-
-
-                                    <Bar
-
-                                        radius={[0, 0, 0, 0]}
-                                        dataKey="fy_Target"
-                                        barSize={30}
-                                        fill="#0031ca"
-                                        yAxisId="left"
-                                        tick={{ fill: 'dark' }}
-                                        legendType="rect"
-                                        name="Target"
-                                        label={{ position: 'top' }}
-                                    />
-
-                                    <Bar
-                                        radius={[0, 0, 0, 0]}
-                                        dataKey="fy_business"
-                                        barSize={25}
-                                        fill="#00600f"
-                                        yAxisId="left"
-                                        legendType="rect"
-                                        name="Business"
-                                        label={{ position: 'top' }}
-                                    />
-                                    <Line
-                                        dot={true}
-                                        activeDot={{ r: 10 }}
-                                        strokeWidth={3}
-                                        strokeLinecap="round"
-                                        type="monotone"
-                                        dataKey="ratio"
-                                        stroke="#ffab40"
-                                        yAxisId="right"
-                                        color='#fff'
-                                        name='Achievement'
-                                        legendType="rect"
-
-                                    />
-                                    <YAxis
-                                        tickLine={false}
-                                        yAxisId="left"
-                                        axisLine={{ stroke: "#f5f5f5" }}
-                                        unit="C"
-                                        tickCount={100}
-                                    />
-                                    <YAxis
-                                        tickLine={false}
-                                        yAxisId="right"
-                                        orientation="right"
-                                        stroke="#3B7AD9"
-                                        axisLine={{ stroke: "#f5f5f5" }}
-                                    // unit="K"
-                                    // domain={[5, "dataMax + 5"]}
-                                    // tickCount={5}
-                                    />
-                                </ComposedChart>
-
-                            </ResponsiveContainer>
-
-                        </div>
-                    </div>
-                </div>
-
-
-            </div> */}
         </div>
     );
 };

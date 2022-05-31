@@ -30,7 +30,10 @@ const ZoneEkok = () => {
                         re_target: (partss[4]),
                         re_business: (partss[5]),
                         t_target: (partss[6]),
-                        t_business: (partss[7])
+                        t_business: (partss[7]),
+                        fy_ratio: (partss[8]),
+                        re_ratio: (partss[9]),
+                        t_ratio: (partss[10])
                     };
                     return ph;
                 });
@@ -47,7 +50,7 @@ const ZoneEkok = () => {
                 <div className="col-md-6 shadow p-1">
                     <button style={{ fontSize: '14px' }} className='btn rounded mb-2 btn-success drop-shadow-lg bg-[#087f23] btn-sm text-white m-1'><b>FIRST YEAR TARGET VS BUSINESS (ZONE-EKOK) <span className='text-warning'></span>  </b></button>
 
-                    <div style={{ width: "100%", height: "250px", marginTop: '0px', background: '#fafafa' }}>
+                    <div style={{ width: "100%", height: "280px", marginTop: '0px', background: '#fafafa' }}>
 
                         <ResponsiveContainer>
                             <ComposedChart
@@ -71,7 +74,7 @@ const ZoneEkok = () => {
                                 />
 
                                 <Tooltip />
-                                <Legend verticalAlign="top" align="left" height={60} />
+                                <Legend verticalAlign="top" align="left" height={150} />
 
                                 <Bar
                                     radius={[0, 0, 0, 0]}
@@ -101,7 +104,7 @@ const ZoneEkok = () => {
                                     strokeWidth={3}
                                     strokeLinecap="round"
                                     type="monotone"
-                                    dataKey="ratio"
+                                    dataKey="fy_ratio"
                                     stroke="#ffab40"
                                     yAxisId="right"
                                     color='#fff'
@@ -145,7 +148,7 @@ const ZoneEkok = () => {
                 <div className="col-md-6 shadow bordered p-1">
                     <button style={{ fontSize: '14px' }} className='btn rounded mb-2 btn-success drop-shadow-lg bg-[#087f23] btn-sm text-white m-1'><b>RENEWAL TARGET VS RENEWAL BUSINESS (ZONE-EKOK) <span className='text-warning'></span>  </b></button>
 
-                    <div style={{ width: "100%", height: "250px", marginTop: '0px', background: '#fafafa' }}>
+                    <div style={{ width: "100%", height: "280px", marginTop: '0px', background: '#fafafa' }}>
 
                         <ResponsiveContainer>
                             <ComposedChart
@@ -169,7 +172,7 @@ const ZoneEkok = () => {
                                 />
 
                                 <Tooltip />
-                                <Legend verticalAlign="top" align="left" height={130} />
+                                <Legend verticalAlign="top" align="left" height={150} />
 
                                 <Bar
                                     radius={[0, 0, 0, 0]}
@@ -199,7 +202,7 @@ const ZoneEkok = () => {
                                     strokeWidth={3}
                                     strokeLinecap="round"
                                     type="monotone"
-                                    dataKey="ratio"
+                                    dataKey="re_ratio"
                                     stroke="#ffab40"
                                     yAxisId="right"
                                     color='#fff'
@@ -267,7 +270,7 @@ const ZoneEkok = () => {
                                 />
 
                                 <Tooltip />
-                                <Legend verticalAlign="top" align="left" height={60} />
+                                <Legend verticalAlign="top" align="left" height={90} />
 
                                 <Bar
                                     radius={[0, 0, 0, 0]}
@@ -297,7 +300,7 @@ const ZoneEkok = () => {
                                     strokeWidth={3}
                                     strokeLinecap="round"
                                     type="monotone"
-                                    dataKey="ratio"
+                                    dataKey="t_ratio"
                                     stroke="#ffab40"
                                     yAxisId="right"
                                     color='#fff'
