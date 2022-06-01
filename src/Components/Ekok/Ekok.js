@@ -83,10 +83,22 @@ const Ekok = () => {
     }, [])
     // RENUAL DATA ================================================
 
+
     return (
 
         <div>
-            <button style={{ fontSize: '14px' }} className='btn rounded btn-success drop-shadow-lg bg-[#087f23] btn-sm text-white m-1'><b>FIRST YEAR TARGET VS BUSINESS (DIVISION)</b></button>
+            <a href="#popup" class="btn">open modal</a>
+            <div class="modal" id="popup">
+                <div class="modal-box">
+                    <h3 class="font-bold text-lg">Congratulations random Interner user!</h3>
+                    <p class="py-4">You've been selected for a chance to get one year of subscription to use Wikipedia for free!</p>
+                    <div class="modal-action">
+                        <a href="#" class="btn">Yay!</a>
+                    </div>
+                </div>
+            </div>
+
+            <button style={{ fontSize: '14px' }} className='btn rounded btn-success drop-shadow-lg bg-[#087f23] btn-md text-white m-1'><b>FIRST YEAR TARGET VS BUSINESS <span className='text-fareast text-[#ffea00] text-xl'>(DIVISION-EKOK )</span> </b></button>
             {/* <img className='rounded-circle shadow bg-white p-3 m-3' style={{ width: '100px', height: '100px' }} src={logo} alt="" /> */}
             {/* <h6 className='mb-0 text-success'> <b style={{ fontWeight: 'bold' }}>BUSINESS</b>  INFORMATION-2022</h6>
             <p className='mb-0 text-success'>(All DIVISION-EKOK)</p> */}
@@ -202,7 +214,7 @@ const Ekok = () => {
             </div>
 
 
-            <button style={{ fontSize: '14px' }} className='btn rounded btn-success drop-shadow-lg bg-[#087f23] btn-sm text-white m-1'><b >RENEWAL TARGET VS BUSINESS (DIVISION)</b></button>
+            <button style={{ fontSize: '14px' }} className='btn rounded btn-success drop-shadow-lg bg-[#087f23] btn-md text-white m-1'><b >RENEWAL TARGET VS BUSINESS <span className='text-fareast text-[#ffea00] text-xl'>(DIVISION-EKOK )</span></b></button>
 
             {/* <h6 className='mb-0 text-success'> <b style={{ fontWeight: 'bold' }}>RENEWAL</b>  BUSINESS INFORMATION-2022</h6>
             <p className='mb-0 text-success'>(All DIVISION-EKOK)</p> */}
@@ -294,7 +306,7 @@ const Ekok = () => {
             </div>
 
 
-            <button style={{ fontSize: '14px' }} className='btn rounded btn-success drop-shadow-lg bg-[#087f23] btn-sm text-white m-1'><b>TOTAL TARGET VS BUSINESS (DIVISION)</b></button>
+            <button style={{ fontSize: '14px' }} className='btn rounded btn-success drop-shadow-lg bg-[#087f23] btn-md text-white m-1'><b>TOTAL TARGET VS BUSINESS <span className='text-fareast text-[#ffea00] text-xl'>(DIVISION-EKOK )</span></b></button>
 
             {/* <h6 className='mb-0 text-success'> <b style={{ fontWeight: 'bold' }}>TOTAL</b>  BUSINESS INFORMATION-2022</h6>
             <p className='mb-0 text-success'>(All DIVISION-EKOK)</p> */}

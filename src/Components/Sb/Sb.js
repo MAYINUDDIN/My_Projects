@@ -101,14 +101,14 @@ const Sb = () => {
 
         <div>
 
-            <button style={{ fontSize: '12px' }} className='btn rounded btn-success drop-shadow-lg bg-[#087f23] btn-md text-white m-1'><b>FIRST YEAR TARGET VS BUSINESS</b></button>
+            <button style={{ fontSize: '14px' }} className='btn rounded btn-primary drop-shadow-lg bg-[#006db3] btn-md text-white m-1'><b>FIRST YEAR TARGET VS BUSINESS <span className='text-fareast text-[#ffea00] text-xl'>(DIVISION-SB )</span></b></button>
             {/* <img className='rounded-circle shadow bg-white p-3 m-3' style={{ width: '100px', height: '100px' }} src={logo} alt="" /> */}
             {/* <h6 className='mb-0 text-success'> <b style={{ fontWeight: 'bold' }} >FIRST YEAR BUSINESS</b>  INFORMATION-2022</h6> */}
             {/* <p className='mb-0 text-success'>(All DIVISION-SB)</p> */}
             <div className="row container-fluid mt-0 p-0">
                 <div class="shadow p-3 mb-2 bg-body rounded">
                     <div className=" col-md-12 mt-0">
-                        <div style={{ width: "100%", height: "220px", marginTop: '0px', background: '#eceff1' }}>
+                        <div style={{ width: "100%", height: "250px", marginTop: '0px', background: '#fafafa' }}>
                             <ResponsiveContainer>
                                 <ComposedChart
                                     width={1000}
@@ -129,7 +129,7 @@ const Sb = () => {
                                         axisLine={{ stroke: "#333" }}
                                     />
                                     <Tooltip />
-                                    <Legend verticalAlign="top" align="left" height={40} />
+                                    <Legend verticalAlign="top" align="left" height={110} />
 
                                     <Bar
                                         radius={[0, 0, 0, 0]}
@@ -206,14 +206,14 @@ const Sb = () => {
             </div>
 
 
-            <button style={{ fontSize: '12px' }} className='btn rounded btn-success drop-shadow-lg bg-[#087f23] btn-md text-white m-1'><b >RENEWAL TARGET VS BUSINESS</b></button>
+            <button style={{ fontSize: '14px' }} className='btn rounded btn-primary drop-shadow-lg bg-[#006db3] btn-md text-white m-1'><b >RENEWAL TARGET VS BUSINESS <span className='text-fareast text-[#ffca28] text-xl'>(DIVISION-SB)</span></b></button>
 
             {/* <h6 className='mb-0 text-success'> <b style={{ fontWeight: 'bold' }}>RENEWAL</b>  BUSINESS INFORMATION-2022</h6>
             <p className='mb-0 text-success'>(All DIVISION-SB)</p> */}
             <div className="row  p-0">
                 <div class="shadow p-3 container-fluid  mb-2 bg-body rounded">
                     <div className=" col-md-12 mt-0">
-                        <div style={{ width: "100%", height: "220px", marginTop: '0px', background: '#eceff1' }}>
+                        <div style={{ width: "100%", height: "250px", marginTop: '0px', background: '#fafafa' }}>
                             <ResponsiveContainer>
                                 <ComposedChart
                                     width={1000}
@@ -234,7 +234,7 @@ const Sb = () => {
                                         axisLine={{ stroke: "#333" }}
                                     />
                                     <Tooltip />
-                                    <Legend verticalAlign="top" align="left" height={165} />
+                                    <Legend verticalAlign="top" align="left" height={185} />
 
                                     <Bar
                                         radius={[0, 0, 0, 0]}
@@ -244,7 +244,7 @@ const Sb = () => {
                                         yAxisId="left"
                                         tick={{ fill: 'dark' }}
                                         legendType="rect"
-                                        name="R_Target"
+                                        name="Renewal_Target"
                                         label={{ position: 'top' }}
                                     />
 
@@ -255,7 +255,7 @@ const Sb = () => {
                                         fill="#0088a3"
                                         yAxisId="left"
                                         legendType="rect"
-                                        name="R_Bus"
+                                        name="Renewal_Business"
                                         label={{ position: 'top' }}
                                     />
                                     <Line
@@ -298,14 +298,14 @@ const Sb = () => {
 
 
 
-            <button style={{ fontSize: '12px' }} className='btn rounded btn-success drop-shadow-lg bg-[#087f23] btn-md text-white m-1'><b>TOTAL TARGET VS BUSINESS</b></button>
+            <button style={{ fontSize: '14px' }} className='btn rounded btn-primary drop-shadow-lg bg-[#006db3] btn-md text-white m-1'><b>TOTAL TARGET VS BUSINESS <span className='text-fareast text-[#ffca28] text-xl'>(DIVISION-SB)</span></b></button>
 
             {/* <h6 className='mb-0 text-success'> <b style={{ fontWeight: 'bold' }}>TOTAL</b>  BUSINESS INFORMATION-2022</h6>
             <p className='mb-0 text-success'>(All DIVISION-SB)</p> */}
             <div className="row  p-0">
                 <div class="shadow p-3  mb-5 bg-body rounded">
                     <div className=" col-md-12 mt-0">
-                        <div style={{ width: "100%", height: "270px", marginTop: '0px', background: '#eceff1' }}>
+                        <div style={{ width: "100%", height: "270px", marginTop: '0px', background: '#fafafa' }}>
                             <ResponsiveContainer>
                                 <ComposedChart
                                     width={1000}
@@ -326,7 +326,7 @@ const Sb = () => {
                                         axisLine={{ stroke: "#333" }}
                                     />
                                     <Tooltip />
-                                    <Legend verticalAlign="top" align="left" height={125} />
+                                    <Legend verticalAlign="top" align="left" height={205} />
 
                                     <Bar
                                         radius={[0, 0, 0, 0]}
@@ -336,7 +336,7 @@ const Sb = () => {
                                         yAxisId="left"
                                         tick={{ fill: 'dark' }}
                                         legendType="rect"
-                                        name="T_Target"
+                                        name="Total_Target"
                                         label={{ position: 'top' }}
                                     />
 
@@ -347,7 +347,7 @@ const Sb = () => {
                                         fill="#102027"
                                         yAxisId="left"
                                         legendType="rect"
-                                        name="T_Bus"
+                                        name="Total_Business"
 
                                         label={{ position: 'top' }}
                                     />

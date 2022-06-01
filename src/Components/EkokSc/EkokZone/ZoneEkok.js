@@ -43,12 +43,12 @@ const ZoneEkok = () => {
     }, [])
     return (
         <div>
-            <h2 className='p-3 font-bold drop-shadow text-success text-lg'> SERVICE CENTER TO ZONE BUSINESS REPORT</h2>
+            <h2 className='p-3 font-bold drop-shadow text-success text-lg'> SERVICE CENTER TO ZONE BUSINESS REPORT <span className='text-fareast text-[#003300] text-xl'>(ZONE-EKOK )</span> </h2>
 
             <div className="row flex m-2">
 
                 <div className="col-md-6 shadow p-1">
-                    <button style={{ fontSize: '14px' }} className='btn rounded mb-2 btn-success drop-shadow-lg bg-[#087f23] btn-sm text-white m-1'><b>FIRST YEAR TARGET VS BUSINESS (ZONE-EKOK) <span className='text-warning'></span>  </b></button>
+                    <button style={{ fontSize: '14px' }} className='btn rounded mb-2 btn-success drop-shadow-lg bg-[#087f23] btn-md text-white m-1'><b>FIRST YEAR TARGET VS BUSINESS <span className='text-fareast text-[#ffea00] text-xl'>(ZONE-EKOK)</span>  </b></button>
 
                     <div style={{ width: "100%", height: "280px", marginTop: '0px', background: '#fafafa' }}>
 
@@ -146,7 +146,7 @@ const ZoneEkok = () => {
 
                 </div>
                 <div className="col-md-6 shadow bordered p-1">
-                    <button style={{ fontSize: '14px' }} className='btn rounded mb-2 btn-success drop-shadow-lg bg-[#087f23] btn-sm text-white m-1'><b>RENEWAL TARGET VS RENEWAL BUSINESS (ZONE-EKOK) <span className='text-warning'></span>  </b></button>
+                    <button style={{ fontSize: '14px' }} className='btn rounded mb-2 btn-success drop-shadow-lg bg-[#087f23] btn-md text-white m-1'><b>RENEWAL TARGET VS RENEWAL BUSINESS <span className='text-fareast text-[#ffea00] text-xl'>(ZONE-EKOK)</span>  </b></button>
 
                     <div style={{ width: "100%", height: "280px", marginTop: '0px', background: '#fafafa' }}>
 
@@ -242,9 +242,9 @@ const ZoneEkok = () => {
                 </div>
             </div>
 
-            <div className="row justify-center mb-5 mt-5">
+            <div className="row justify-center mb-5 mt-4">
                 <div className="col-md-8 shadow bordered p-1">
-                    <button style={{ fontSize: '14px' }} className='btn rounded mb-0 mt-0 btn-success drop-shadow-lg bg-[#087f23] btn-sm text-white m-1'><b>TOTAL TARGET VS TOTAL BUSINESS (ZONE-EKOK) <span className='text-warning'></span>  </b></button>
+                    <button style={{ fontSize: '14px' }} className='btn rounded mb-0 mt-0 btn-success drop-shadow-lg bg-[#087f23] btn-md text-white m-1'><b>TOTAL TARGET VS TOTAL BUSINESS <span className='text-fareast text-[#ffea00] text-xl'>(ZONE-EKOK)</span>  </b></button>
 
                     <div style={{ width: "100%", height: "250px", marginTop: '0px', background: '#fafafa' }}>
 
