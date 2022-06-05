@@ -84,19 +84,10 @@ const Ekok = () => {
     // RENUAL DATA ================================================
 
 
+
     return (
 
         <div>
-            <a href="#popup" class="btn">open modal</a>
-            <div class="modal" id="popup">
-                <div class="modal-box">
-                    <h3 class="font-bold text-lg">Congratulations random Interner user!</h3>
-                    <p class="py-4">You've been selected for a chance to get one year of subscription to use Wikipedia for free!</p>
-                    <div class="modal-action">
-                        <a href="#" class="btn">Yay!</a>
-                    </div>
-                </div>
-            </div>
 
             <button style={{ fontSize: '14px' }} className='btn rounded btn-success drop-shadow-lg bg-[#087f23] btn-md text-white m-1'><b>FIRST YEAR TARGET VS BUSINESS <span className='text-fareast text-[#ffea00] text-xl'>(DIVISION-EKOK )</span> </b></button>
             {/* <img className='rounded-circle shadow bg-white p-3 m-3' style={{ width: '100px', height: '100px' }} src={logo} alt="" /> */}
@@ -402,6 +393,8 @@ const Ekok = () => {
 
 
         </div >
+
+
     );
 };
 
