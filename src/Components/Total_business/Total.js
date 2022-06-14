@@ -125,7 +125,7 @@ const Total = () => {
                                         orientation="right"
                                         stroke="#3B7AD9"
                                         axisLine={{ stroke: "#f5f5f5" }}
-                                        unit="K"
+                                        unit="%"
                                         domain={[5, "dataMax + 5"]}
                                         tickCount={5}
                                     />
@@ -209,7 +209,6 @@ const Total = () => {
                                         yAxisId="right"
                                         color='#fff'
                                         name='Ratio'
-
                                         legendType="rect"
 
                                     />
@@ -226,7 +225,7 @@ const Total = () => {
                                         orientation="right"
                                         stroke="#3B7AD9"
                                         axisLine={{ stroke: "#f5f5f5" }}
-                                        unit="K"
+                                        unit="%"
                                         domain={[5, "dataMax + 5"]}
                                         tickCount={5}
                                     />

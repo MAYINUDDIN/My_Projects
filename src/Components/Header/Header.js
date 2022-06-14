@@ -32,6 +32,7 @@ const Header = () => {
                     <li className='rounded  font-bold text-white bg-[#087f23]   '><NavLink to='/'>EKOK</NavLink></li>
                     <li className='rounded  font-bold text-white bg-[#087f23] ml-2 '><NavLink to='/Sb-office'>SB</NavLink ></li>
                     <li className='rounded  font-bold text-white bg-[#087f23] ml-2 '><NavLink to='/Total_Business'>TOTAL BUSINESS</NavLink ></li>
+                    <li className='rounded  font-bold text-white bg-[#087f23] ml-2 '><NavLink to='/Daily_Business'>Daily BUSINESS</NavLink ></li>
 
                 </ul>
             </div>
