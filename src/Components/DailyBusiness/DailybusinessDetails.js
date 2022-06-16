@@ -117,7 +117,7 @@ const DailybusinessDetails = () => {
                                 yAxisId="left"
                                 axisLine={{ stroke: "#f5f5f5" }}
                                 unit="k"
-                                tickCount={100}
+                                tickCount={10}
                             />
                             <YAxis
                                 tickLine={false}

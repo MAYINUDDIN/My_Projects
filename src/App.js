@@ -24,7 +24,7 @@ function App() {
         <Route path='/' element={<Ekok></Ekok>}>EKOK</Route>
         <Route path='/Sb-office' element={<Sb></Sb>}>SB</Route>
         <Route path='/Total_Business' element={<Total></Total>}>SB</Route>
-        <Route path='/Daily_Business' element={<Daily></Daily>}>SB</Route>
+        <Route path='/Daily_Business' element={<DailyBusiness></DailyBusiness>}>SB</Route>
 
         <Route path='/DIV_CODE=:id' element={<Div></Div>}>Sc</Route>
         <Route path='/DIV_SB_CODE=:id' element={<SbScResult></SbScResult>}>Sb_Sc</Route>
