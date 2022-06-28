@@ -27,7 +27,7 @@ const DailyBusiness = () => {
     const daily = () => {
 
 
-        fetch(`http://202.164.213.67/payment/daily_business.php?FROM_DATE=${fromdate}&&TOO_DATE=${todate}&&PRJ=${type}`)
+        fetch(`http://202.164.213.67/payment/daily/daily_business.php?FROM_DATE=${fromdate}&&TOO_DATE=${todate}&&PRJ=${type}`)
             .then(Response => Response.json())
             .then(data => {
                 const loadedData = data;
@@ -38,9 +38,7 @@ const DailyBusiness = () => {
                 });
                 SetDailyData(loadedData);
 
-
             });
-
 
     }
 
@@ -103,6 +101,12 @@ const DailyBusiness = () => {
 
 
             </div>
+
+            {/* {
+                dailydata.length === 0 ? <p className='text-center'></p> :
+                    dailydata.map(dailyy => <Daily key={dailyy.id} dailyy={dailyy}></Daily>)
+
+            } */}
 
             <div class="grid grid-cols-1 gap-1 m-12 items-align-center">
                 {/* <h1 className=" text-success text-2xl font-bold">DAILY BUSINESS REPORT  <span className='text-fareast text-dark  font-bold text-lg'> (From Date: {fromdate} To Date: {todate})</span> </h1> */}

@@ -244,7 +244,7 @@ const Ekok = () => {
                                         yAxisId="left"
                                         tick={{ fill: 'dark' }}
                                         legendType="rect"
-                                        name="R_Target"
+                                        name="Renewal Target"
                                         label={{ position: 'top' }}
                                     />
 
@@ -255,7 +255,7 @@ const Ekok = () => {
                                         fill="#004ba0"
                                         yAxisId="left"
                                         legendType="rect"
-                                        name="R_Bus"
+                                        name="Renewal Business"
                                         label={{ position: 'top' }}
                                     />
                                     <Line
@@ -335,7 +335,7 @@ const Ekok = () => {
                                         yAxisId="left"
                                         tick={{ fill: 'dark' }}
                                         legendType="rect"
-                                        name="T_Target"
+                                        name="Total Target"
                                         label={{ position: 'top' }}
                                     />
 
@@ -346,7 +346,7 @@ const Ekok = () => {
                                         fill="#5cac50"
                                         yAxisId="left"
                                         legendType="rect"
-                                        name="T_Bus"
+                                        name="Total Business"
                                         label={{ position: 'top' }}
                                     />
                                     <Line

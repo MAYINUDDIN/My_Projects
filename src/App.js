@@ -8,7 +8,9 @@ import Ekok from './Components/Ekok/Ekok';
 import Div from './Components/EkokSc/Div';
 import ZoneEkok from './Components/EkokSc/EkokZone/ZoneEkok';
 import Header from './Components/Header/Header';
+import Login from './Components/Login/Login';
 import Notfound from './Components/NotFound/Notfound';
+import Register from './Components/Register/Register';
 import Sb from './Components/Sb/Sb';
 import SbScResult from './Components/Sb/SbScResult';
 import SbZone from './Components/Sb/SbZone';
@@ -19,9 +21,19 @@ import Total from './Components/Total_business/Total';
 function App() {
   return (
     <div className="App">
+
+
+
+
       <Header></Header>
       <Routes>
-        <Route path='/' element={<Ekok></Ekok>}>EKOK</Route>
+        <Route path='/' element={<Login></Login>}  >
+          Login
+        </Route>
+        <Route path='/Register' element={<Register></Register>}  >
+          Login
+        </Route>
+        <Route path='/ekok' element={<Ekok></Ekok>}>EKOK</Route>
         <Route path='/Sb-office' element={<Sb></Sb>}>SB</Route>
         <Route path='/Total_Business' element={<Total></Total>}>SB</Route>
         <Route path='/Daily_Business' element={<DailyBusiness></DailyBusiness>}>SB</Route>

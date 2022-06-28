@@ -15,6 +15,7 @@ const Daily = ({ dailyy }) => {
                     < h2 className='text-left bordered rounded'> {NAME}</h2 >
                 </div >
 
+
                 <div class="stat w-64 bg-[#0093c4] text-white font-bold bordered rounded ml-1">
                     <h2 className='text-left'>{TOTAL_1ST_YR}</h2>
                 </div>
@@ -27,6 +28,8 @@ const Daily = ({ dailyy }) => {
                 </div>
 
             </div >
+
+
         </div>
 
     );
