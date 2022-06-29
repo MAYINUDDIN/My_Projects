@@ -33,7 +33,7 @@ const Header = () => {
                         <li className='text-sm  mt-2 rounded  font-bold text-white bg-[#087f23] px-8  '><Link to='/Total_Business'>TOTAL BUSINESS</Link ></li> */}
                         {
                             user ?
-                                <>  <li className='rounded  font-bold text-white bg-[#087f23]   '><NavLink to='/'>EKOK</NavLink></li>
+                                <>  <li className='rounded  font-bold text-white bg-[#087f23]   '><NavLink to='/ekok'>EKOK</NavLink></li>
                                     <li className='rounded  font-bold text-white bg-[#087f23] ml-2 '><NavLink to='/Sb-office'>SB</NavLink ></li>
                                     <li className='rounded  font-bold text-white bg-[#087f23] ml-2 '><NavLink to='/Total_Business'>TOTAL BUSINESS</NavLink ></li>
                                     <li className='rounded  font-bold text-white bg-[#087f23] ml-2 '><NavLink to='/Daily_Business'>Daily BUSINESS</NavLink ></li>
@@ -55,9 +55,6 @@ const Header = () => {
                     {/* <button className='btn btn-success rounded btn-md px-6 text-white font-bold text-lg'><NavLink to='/'>EKOK</NavLink></button>
                     <button className='btn btn-success rounded btn-md px-8 text-white font-bold text-lg ml-4'><NavLink to='/Sb-office'>SB</NavLink></button>
                     <button className='btn btn-success rounded btn-md px-6 text-white font-bold text-lg ml-4'><NavLink to='/Total_Business'>TOTAL</NavLink></button> */}
-
-
-
 
                     {
                         user ?
