@@ -81,7 +81,7 @@ const Register = () => {
                                 </div>
 
                                 <div class="w-50 text-md-right">
-                                    <CustomLink class='bg-white text-primary' to={'/login'}>
+                                    <CustomLink class='bg-white text-primary' to={'/'}>
                                         Login
                                     </CustomLink >
                                 </div>
@@ -90,7 +90,7 @@ const Register = () => {
 
                             <p className='mt-3 text-danger'>{error}</p>
                             <div class="form-group mt-3 mb-3">
-                                <button type="submit" name="submit" class="form-control btn btn-primary rounded submit px-3">Sign Up</button>
+                                <button type="submit" name="submit" class="form-control btn btn-success text-white rounded submit px-3">Sign Up</button>
                             </div>
 
                         </form>

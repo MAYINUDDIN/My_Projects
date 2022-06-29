@@ -12,9 +12,9 @@ const Header = () => {
     console.log(user);
     const handleSignOut = () => {
         signOut(auth);
-        if (signOut) {
-            Navigate('/');
-        }
+        // if (signOut) {
+        //     Navigate('/');
+        // }
     }
 
 
@@ -61,7 +61,7 @@ const Header = () => {
 
                     {
                         user ?
-                            <>  <li className='rounded  font-bold text-white bg-[#087f23]   '><NavLink to='/'>EKOK</NavLink></li>
+                            <>  <li className='rounded  font-bold text-white bg-[#087f23]  '><NavLink to='/ekok'>EKOK</NavLink></li>
                                 <li className='rounded  font-bold text-white bg-[#087f23] ml-2 '><NavLink to='/Sb-office'>SB</NavLink ></li>
                                 <li className='rounded  font-bold text-white bg-[#087f23] ml-2 '><NavLink to='/Total_Business'>TOTAL BUSINESS</NavLink ></li>
                                 <li className='rounded  font-bold text-white bg-[#087f23] ml-2 '><NavLink to='/Daily_Business'>Daily BUSINESS</NavLink ></li>

@@ -95,7 +95,7 @@ const Login = () => {
                                 <button type="submit" name="submit" class="form-control btn btn-success text-white font-bold w-96 rounded submit px-3">Login</button>
                             </div> */}
                             <div class="form-group d-flex mt-2 m-3 mb-3 justify-center ">
-                                <button type="submit" name="submit" className='w-64  btn btn-success text-white font-bold lg:w-80 px-12 rounded '>LOGIN</button>
+                                <button type="submit" name="submit" className='w-64  bg-[#087f23] btn btn-success text-white font-bold lg:w-80 px-12 rounded '>LOGIN</button>
                             </div>
 
 

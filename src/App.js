@@ -10,6 +10,7 @@ import ZoneEkok from './Components/EkokSc/EkokZone/ZoneEkok';
 import Header from './Components/Header/Header';
 import Login from './Components/Login/Login';
 import Notfound from './Components/NotFound/Notfound';
+import PrivateRoute from './Components/PrivateRoute/PrivateRoute';
 import Register from './Components/Register/Register';
 import Sb from './Components/Sb/Sb';
 import SbScResult from './Components/Sb/SbScResult';
@@ -31,19 +32,20 @@ function App() {
           Login
         </Route>
         <Route path='/Register' element={<Register></Register>}  >
-          Login
+          Register
         </Route>
-        <Route path='/ekok' element={<Ekok></Ekok>}>EKOK</Route>
-        <Route path='/Sb-office' element={<Sb></Sb>}>SB</Route>
-        <Route path='/Total_Business' element={<Total></Total>}>SB</Route>
-        <Route path='/Daily_Business' element={<DailyBusiness></DailyBusiness>}>SB</Route>
 
-        <Route path='/DIV_CODE=:id' element={<Div></Div>}>Sc</Route>
-        <Route path='/DIV_SB_CODE=:id' element={<SbScResult></SbScResult>}>Sb_Sc</Route>
-        <Route path='/Daily_business=:from=:to' element={<DailybusinessDetails></DailybusinessDetails>}>Sb_Sc</Route>
+        <Route path='/ekok' element={<PrivateRoute><Ekok></Ekok></PrivateRoute>}>EKOK</Route>
+        <Route path='/Sb-office' element={<PrivateRoute><Sb></Sb></PrivateRoute>}>SB</Route>
+        <Route path='/Total_Business' element={<PrivateRoute><Total></Total></PrivateRoute>}>SB</Route>
+        <Route path='/Daily_Business' element={<PrivateRoute><DailyBusiness></DailyBusiness></PrivateRoute>}>SB</Route>
 
-        <Route path='/SCCODE=:id' element={<ZoneEkok></ZoneEkok>}>Zone</Route>
-        <Route path='/SC_SB_CODE=:id' element={<SbZone></SbZone>}>Sb_Zone</Route>
+        <Route path='/DIV_CODE=:id' element={<PrivateRoute><Div></Div></PrivateRoute>}>Sc</Route>
+        <Route path='/DIV_SB_CODE=:id' element={<PrivateRoute><SbScResult></SbScResult></PrivateRoute>}>Sb_Sc</Route>
+        <Route path='/Daily_business=:from=:to' element={<PrivateRoute><DailybusinessDetails></DailybusinessDetails></PrivateRoute>}>Sb_Sc</Route>
+
+        <Route path='/SCCODE=:id' element={<PrivateRoute><ZoneEkok></ZoneEkok></PrivateRoute>}>Zone</Route>
+        <Route path='/SC_SB_CODE=:id' element={<PrivateRoute><SbZone></SbZone></PrivateRoute>}>Sb_Zone</Route>
         <Route path='*' element={<Notfound></Notfound>}></Route>
 
       </Routes>
