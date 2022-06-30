@@ -8,7 +8,6 @@ import { useState } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-
 const Login = () => {
     const [emails, setEmails] = useState('');
     const [sendPasswordResetEmail, sending] = useSendPasswordResetEmail(
@@ -37,10 +36,7 @@ const Login = () => {
         const email = event.target.email.value;
         const password = event.target.password.value;
         signInWithEmailAndPassword(email, password);
-
     }
-
-
 
 
     return (
@@ -49,7 +45,7 @@ const Login = () => {
 
 
                 <div className="col-md-4 p-5">
-                    <h3 className='mt-5 text-sm lg:text-lg text-success font-bold drop-shadow mb-3'>WELCOME TO FAREAST BUSINESS <span >DASHBOARD</span> </h3>
+                    <h3 className='mt-2 text-sm lg:text-lg text-success font-bold drop-shadow mb-3'>WELCOME TO FAREAST BUSINESS <span >DASHBOARD</span> </h3>
 
                     <div class="shadow p-3 mb-5 bg-body rounded">
 
@@ -98,15 +94,12 @@ const Login = () => {
                                 <button type="submit" name="submit" className='w-64  bg-[#087f23] btn btn-success text-white font-bold lg:w-80 px-12 rounded '>LOGIN</button>
                             </div>
 
-
                         </form>
-
 
 
                     </div>
                 </div>
             </div>
-
         </div >
     );
 };

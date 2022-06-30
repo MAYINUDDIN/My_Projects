@@ -20,7 +20,7 @@ const Header = () => {
 
 
     return (
-        <div class="navbar bg-green-600 lg:px-28">
+        <div class="navbar bg-green-600 lg:px-24">
             <div class="navbar-start">
                 <div class="dropdown">
                     <label tabindex="0" class="btn btn-ghost lg:hidden">
@@ -55,6 +55,7 @@ const Header = () => {
                     {/* <button className='btn btn-success rounded btn-md px-6 text-white font-bold text-lg'><NavLink to='/'>EKOK</NavLink></button>
                     <button className='btn btn-success rounded btn-md px-8 text-white font-bold text-lg ml-4'><NavLink to='/Sb-office'>SB</NavLink></button>
                     <button className='btn btn-success rounded btn-md px-6 text-white font-bold text-lg ml-4'><NavLink to='/Total_Business'>TOTAL</NavLink></button> */}
+
 
                     {
                         user ?

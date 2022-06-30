@@ -7,10 +7,15 @@ import { Link } from "react-router-dom";
 import Loading from "../Loading";
 import Daily from "./Daily";
 import DailybusinessDetails from "./DailybusinessDetails";
+import TotalBusiness from "./TotalBusiness";
 const DailyBusiness = () => {
 
     const [dailydata, SetDailyData] = useState([]);
     console.log(dailydata);
+
+
+    const [tdata, SetTData] = useState([]);
+    console.log(tdata);
 
     const [fromdate, setFromDate] = useState();
     const [todate, setToDate] = useState();
@@ -24,19 +29,51 @@ const DailyBusiness = () => {
     }
 
 
+    // const total = () => {
+
+
+    //     fetch(`http://202.164.213.67/payment/daily/total.php?FROM_DATE=${fromdate}&&TOO_DATE=${todate}&&PRJ=${type}`)
+    //         .then(Response => Response.json())
+    //         .then(data => {
+    //             const loadedTData = data;
+
+    //             const dData = loadedTData.map(ekok => {
+    //                 const d = ekok.OFF_NAME;
+    //                 console.log(d);
+
+    //             });
+    //             SetTData(loadedTData);
+
+    //         });
+
+    // }
+
     const daily = () => {
-
-
-        fetch(`http://202.164.213.67/payment/daily/daily_business.php?FROM_DATE=${fromdate}&&TOO_DATE=${todate}&&PRJ=${type}`)
+        fetch(`http://202.164.213.67/payment/daily/ekoksb.php?FROM_DATE=${fromdate}&&TOO_DATE=${todate}`)
             .then(Response => Response.json())
             .then(data => {
                 const loadedData = data;
+
                 const dData = loadedData.map(ekok => {
                     const d = ekok.OFF_NAME;
                     console.log(d);
 
                 });
                 SetDailyData(loadedData);
+
+            });
+
+        fetch(`http://202.164.213.67/payment/daily/total.php?FROM_DATE=${fromdate}&&TOO_DATE=${todate}`)
+            .then(Response => Response.json())
+            .then(data => {
+                const loadedTData = data;
+
+                const dData = loadedTData.map(ekok => {
+                    const d = ekok.OFF_NAME;
+                    console.log(d);
+
+                });
+                SetTData(loadedTData);
 
             });
 
@@ -62,7 +99,7 @@ const DailyBusiness = () => {
     return (
         <div>
 
-            <div class="stats px-16 bg-success rounded mt-2 text-primary-content">
+            <div class="stats px-6 bg-success rounded mt-2 text-primary-content">
 
                 <div class="stat">
                     <div className="flex text-center align-items-center">
@@ -81,17 +118,18 @@ const DailyBusiness = () => {
                         <input className="text-dark shadow rounded p-2 text-center" type="date" onChange={e => setToDate(e.target.value)} />
                         {/* <Link to={`/Daily_business=${fromdate}=${todate}`}>   <button className=" m-3 btn-info text-white btn-sm bg-[#4fc3f7] uppercase">Submit</button></Link> */}
 
-                        <div className="flex text-center text-dark align-items-center ml-3">
+                        {/* <div className="flex text-center text-dark align-items-center ml-3">
                             <select className="text-dark shadow rounded p-2 pl-5 px-12 text-center" name='option' onChange={handleChange}>
                                 <option >Select Type</option>
                                 <option value="EKOK">EKOK</option>
                                 <option value="SB">SB</option>
 
                             </select>
-                        </div>
+                        </div> */}
 
 
                         <button onClick={daily} className=" m-3 btn-primary  text-white btn-md px-10 text-lg rounded bg-[#002f6c] uppercase">Submit</button>
+                        {/* <button onClick={total} className=" m-3 btn-primary  text-white btn-md px-10 text-lg rounded bg-[#002f6c] uppercase">For Total</button> */}
 
                         {/* <h3 className="mt-5">Selected Date{date}</h3> */}
                     </div>
@@ -112,19 +150,19 @@ const DailyBusiness = () => {
                 {/* <h1 className=" text-success text-2xl font-bold">DAILY BUSINESS REPORT  <span className='text-fareast text-dark  font-bold text-lg'> (From Date: {fromdate} To Date: {todate})</span> </h1> */}
                 <div>
                     <div class="stats shadow-sm bordered rounded">
-                        <div class="stat w-64 bg-[#002f6c] text-white font-bold bordered rounded">
-                            < h2 className='text-left bordered rounded'>DIVISION NAME</h2 >
+                        <div class="stat w-52 bg-[#002f6c] text-white font-bold bordered rounded">
+                            < h2 className='text-left bordered rounded '>DIVISION NAME</h2 >
                         </div >
 
-                        <div class="stat w-64 bg-[#002f6c] text-white font-bold bordered rounded ml-1">
-                            <h2 className='text-left'>FIRST YEAR</h2>
+                        <div class="stat w-48 bg-[#002f6c] text-white font-bold bordered rounded ml-1">
+                            <h2 className='text-right'>FIRST YEAR</h2>
                         </div>
 
-                        <div class="stat w-60 bg-[#002f6c] text-white font-bold bordered ml-1 rounded">
-                            <h2 className='text-left'>RENEWAL</h2>
+                        <div class="stat w-48 bg-[#002f6c] text-white font-bold bordered ml-1 rounded">
+                            <h2 className='text-right'>RENEWAL</h2>
                         </div>
-                        <div class="stat w-64 bg-[#002f6c] text-white font-bold bordered ml-1 rounded">
-                            <h2 className='text-left'>TOTAL</h2>
+                        <div class="stat w-48 bg-[#002f6c] text-white font-bold bordered ml-1 rounded">
+                            <h2 className='text-right'>TOTAL</h2>
                         </div>
 
                     </div >
@@ -135,8 +173,14 @@ const DailyBusiness = () => {
                         dailydata.map(dailyy => <Daily key={dailyy.id} dailyy={dailyy}></Daily>)
 
                 }
+                {
 
+                    tdata.map(totl => <TotalBusiness key={totl.id} totl={totl}></TotalBusiness>)
+
+                }
             </div>
+
+
         </div>
 
 
