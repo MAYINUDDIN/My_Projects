@@ -45,7 +45,7 @@ const Login = () => {
 
 
                 <div className="col-md-4 p-5">
-                    <h3 className='mt-2 text-sm lg:text-lg text-success font-bold drop-shadow mb-3'>WELCOME TO FAREAST BUSINESS <span >DASHBOARD</span> </h3>
+                    <h4 className='mt-2 text-sm lg:text-lg text-success font-bold drop-shadow mb-3'>WELCOME TO FAREAST BUSINESS <span >DASHBOARD</span> </h4>
 
                     <div class="shadow p-3 mb-5 bg-body rounded">
 

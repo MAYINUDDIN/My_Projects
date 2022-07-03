@@ -3,7 +3,7 @@ import DailyBusiness from './DailyBusiness'
 import DailybusinessDetails from './DailybusinessDetails'
 const Daily = ({ dailyy }) => {
 
-    const { NAME, TOTAL_1ST_YR, TOTAL_RENEWAL, TOTAL } = dailyy;
+    const { NAME, EKOK_TOTAL_1ST_YR, EKOK_TOTAL_RENEWAL, EKOK_TOTAL } = dailyy;
 
     console.log(NAME);
 
@@ -11,30 +11,23 @@ const Daily = ({ dailyy }) => {
 
     return (
 
-        <div>
-
-            <div class="stats shadow-sm bordered rounded">
-
-                <div class="stat w-52 bg-[#007c91] text-white font-bold bordered rounded">
-                    < h2 className='text-left bordered rounded'> {NAME}</h2 >
-                </div >
-
-
-                <div class="stat w-48 bg-[#0093c4] text-white font-bold bordered rounded ml-1">
-                    <h2 className='text-right'>{TOTAL_1ST_YR}</h2>
-                </div>
-
-                <div class="stat w-48 bg-[#0093c4] text-white font-bold bordered ml-1 rounded">
-                    <h2 className='text-right'>{TOTAL_RENEWAL}</h2>
-                </div>
-                <div class="stat w-48 bg-[#00675b] text-white font-bold bordered ml-1 rounded">
-                    <h2 className='text-right'>{TOTAL}</h2>
-                </div>
-
+        <div className="ml-0 flex mt-1 pr-1  w-full">
+            <div class="stat w-1/4  bg-[#338a3e] text-white font-bold bordered rounded">
+                < h2 className='text-left bordered rounded text-sm'>{NAME}</h2 >
             </div >
 
+            <div class="stat w-1/4 bg-[#0c937f] text-white font-bold bordered rounded ml-1">
+                <h2 className='text-right text-md'>{EKOK_TOTAL_1ST_YR}</h2>
+            </div>
 
+            <div class="stat w-1/4  bg-[#0c937f] text-white font-bold bordered ml-1 rounded">
+                <h2 className='text-right text-md'>{EKOK_TOTAL_RENEWAL}</h2>
+            </div>
+            <div class="stat w-1/4  bg-[#0c937f] text-white font-bold bordered ml-1 rounded">
+                <h2 className='text-right'>{EKOK_TOTAL}</h2>
+            </div>
         </div>
+
 
     );
 };
