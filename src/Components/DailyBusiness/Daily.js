@@ -11,17 +11,17 @@ const Daily = ({ dailyy }) => {
 
     return (
 
-        <div className="ml-0 flex mt-1 pr-1  w-full">
+        <div className="ml-0 flex mt-1   w-full">
             <div class="stat w-1/4  bg-[#338a3e] text-white font-bold bordered rounded">
                 < h2 className='text-left bordered rounded text-sm'>{NAME}</h2 >
             </div >
 
             <div class="stat w-1/4 bg-[#0c937f] text-white font-bold bordered rounded ml-1">
-                <h2 className='text-right text-md'>{EKOK_TOTAL_1ST_YR}</h2>
+                <h2 className='text-right text-sm'>{EKOK_TOTAL_1ST_YR}</h2>
             </div>
 
             <div class="stat w-1/4  bg-[#0c937f] text-white font-bold bordered ml-1 rounded">
-                <h2 className='text-right text-md'>{EKOK_TOTAL_RENEWAL}</h2>
+                <h2 className='text-right text-sm'>{EKOK_TOTAL_RENEWAL}</h2>
             </div>
             <div class="stat w-1/4  bg-[#0c937f] text-white font-bold bordered ml-1 rounded">
                 <h2 className='text-right'>{EKOK_TOTAL}</h2>

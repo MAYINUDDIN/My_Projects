@@ -8,11 +8,18 @@ import Loading from "../Loading";
 import Daily from "./Daily";
 import DailybusinessDetails from "./DailybusinessDetails";
 import Daily_sb from "./Daily_sb";
+import EkokTotal from "./EkokTotal";
+import SbTotal from "./SbTotal";
+import Total from "./Total";
 import TotalBusiness from "./TotalBusiness";
 const DailyBusiness = () => {
 
     const [dailydata, SetDailyData] = useState([]);
     console.log(dailydata);
+
+    const [edailydata, SetEDailyData] = useState([]);
+    const [sdailydata, SetSDailyData] = useState([]);
+    const [total, SetTotal] = useState([]);
 
     const [dailydatasb, SetDailyDatasb] = useState([]);
 
@@ -32,40 +39,7 @@ const DailyBusiness = () => {
     }
 
 
-    // const total = () => {
-
-
-    //     fetch(`http://202.164.213.67/payment/daily/total.php?FROM_DATE=${fromdate}&&TOO_DATE=${todate}&&PRJ=${type}`)
-    //         .then(Response => Response.json())
-    //         .then(data => {
-    //             const loadedTData = data;
-
-    //             const dData = loadedTData.map(ekok => {
-    //                 const d = ekok.OFF_NAME;
-    //                 console.log(d);
-
-    //             });
-    //             SetTData(loadedTData);
-
-    //         });
-
-    // }
-
     const daily = () => {
-        fetch(`http://202.164.213.67/payment/daily/ekok_business.php?FROM_DATE=${fromdate}&&TOO_DATE=${todate}`)
-            .then(Response => Response.json())
-            .then(data => {
-                const loadedData = data;
-
-                const dData = loadedData.map(ekok => {
-                    const d = ekok.OFF_NAME;
-                    console.log(d);
-
-                });
-                SetDailyData(loadedData);
-
-            });
-
 
         fetch(`http://202.164.213.67/payment/daily/sb_business.php?FROM_DATE=${fromdate}&&TOO_DATE=${todate}`)
             .then(Response => Response.json())
@@ -81,6 +55,23 @@ const DailyBusiness = () => {
 
             });
 
+        fetch(`http://202.164.213.67/payment/daily/ekok_business.php?FROM_DATE=${fromdate}&&TOO_DATE=${todate}`)
+            .then(Response => Response.json())
+            .then(data => {
+                const loadedData = data;
+
+                const dData = loadedData.map(ekok => {
+                    const d = ekok.OFF_NAME;
+                    console.log(d);
+
+                });
+                SetDailyData(loadedData);
+
+            });
+
+
+
+
         fetch(`http://202.164.213.67/payment/daily/ekoksb.php?FROM_DATE=${fromdate}&&TOO_DATE=${todate}`)
             .then(Response => Response.json())
             .then(data => {
@@ -94,6 +85,50 @@ const DailyBusiness = () => {
                 SetTData(loadedTData);
 
             });
+
+        fetch(`http://202.164.213.67/payment/daily/ekok_total.php?FROM_DATE=${fromdate}&&TOO_DATE=${todate}`)
+            .then(Response => Response.json())
+            .then(data => {
+                const loadedTData = data;
+
+                const dData = loadedTData.map(ekok => {
+                    const d = ekok.OFF_NAME;
+                    console.log(d);
+
+                });
+                SetEDailyData(loadedTData);
+
+            });
+
+        fetch(`http://202.164.213.67/payment/daily/sb_total.php?FROM_DATE=${fromdate}&&TOO_DATE=${todate}`)
+            .then(Response => Response.json())
+            .then(data => {
+                const loadedTData = data;
+
+                const dData = loadedTData.map(ekok => {
+                    const d = ekok.OFF_NAME;
+                    console.log(d);
+
+                });
+                SetSDailyData(loadedTData);
+
+            });
+
+
+        fetch(`http://202.164.213.67/payment/daily/all_total.php?FROM_DATE=${fromdate}&&TOO_DATE=${todate}`)
+            .then(Response => Response.json())
+            .then(data => {
+                const loadedTData = data;
+
+                const dData = loadedTData.map(ekok => {
+                    const d = ekok.OFF_NAME;
+                    console.log(d);
+
+                });
+                SetTotal(loadedTData);
+
+            });
+
 
     }
 
@@ -201,8 +236,6 @@ const DailyBusiness = () => {
                                     </div>
                                 </div>
 
-
-
                             </div>
 
                         </div>
@@ -222,6 +255,13 @@ const DailyBusiness = () => {
                                 dailydata.map(dailyy => <Daily key={dailyy.id} dailyy={dailyy}></Daily>)
 
                         }
+
+                        {
+                            edailydata.length === 0 ? <p className='text-center'></p> :
+                                edailydata.map(edaily => <EkokTotal key={edaily.id} edaily={edaily}></EkokTotal>)
+
+                        }
+
                     </div>
                     <div className="w-full mb-3">
 
@@ -231,12 +271,22 @@ const DailyBusiness = () => {
 
                         }
 
+                        {
+                            sdailydata.length === 0 ? <p className='text-center'></p> :
+                                sdailydata.map(sdaily => <SbTotal key={sdaily.id} sdaily={sdaily}></SbTotal>)
+
+                        }
+
                     </div>
                     <div className=" mb-3">
                         {
                             tdata.length === 0 ? <p className='text-center'></p> :
                                 tdata.map(totl => <TotalBusiness key={totl.id} totl={totl}></TotalBusiness>)
+                        }
 
+                        {
+                            total.length === 0 ? <p className='text-center'></p> :
+                                total.map(totll => <Total key={totll.id} totll={totll}></Total>)
                         }
                     </div>
 

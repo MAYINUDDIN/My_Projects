@@ -112,6 +112,7 @@ const ZoneEkok = () => {
                                     legendType="rect"
 
                                 />
+
                                 <YAxis
                                     tickLine={false}
                                     yAxisId="left"
