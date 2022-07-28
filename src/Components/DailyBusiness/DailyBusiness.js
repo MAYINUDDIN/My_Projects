@@ -183,7 +183,7 @@ const DailyBusiness = () => {
 
                     <div className="mt-2">
                         <div class="grid grid-cols-1 gap-1 mt-1 p-0 ml-2 mr-2 items-align-center">
-                            <div className="flex">
+                            <div className="flex w-full">
 
                                 <div class="stat w-full bg-[#0077c2] text-white font-bold bordered ">
                                     < h2 className='text-center bordered rounded '>EKOK</h2 >
@@ -191,48 +191,59 @@ const DailyBusiness = () => {
                                 <div class="stat w-full ml-0 bg-[#0077c2] text-white font-bold bordered ">
                                     < h2 className='text-center bordered rounded '>SHARBAJANIN</h2 >
                                 </div >
+                                <div class="stat w-full ml-0 bg-[#0077c2] text-white font-bold bordered ">
+                                    < h2 className='text-center bordered rounded '>TOTAL (EKOK+SB)</h2 >
+                                </div >
                             </div>
                         </div>
 
-                        <div class="grid grid-cols-1 lg:grid-cols-1  gap-1 mt-1 p-0 ml-2 mr-2 ">
+                        <div class="grid grid-cols-1 lg:grid-cols-1  gap-0 mt-1 p-0 ml-2 mr-2 ">
                             <div className="flex ">
                                 <div className="ml-0 flex  w-full">
-                                    <div class="stat w-1/4  bg-[#005b4f] text-white font-bold bordered rounded">
+                                    <div class="stat w-48  bg-[#005b4f] text-white font-bold bordered rounded">
                                         < h2 className='text-left bordered rounded text-sm'>DIVISION NAME</h2 >
                                     </div >
 
-                                    <div class="stat w-1/4 bg-[#0095a8] text-white font-bold bordered rounded ml-1">
-                                        <h2 className='text-right'>FIRST YEAR</h2>
+                                    <div class="stat w-32 bg-[#0095a8] text-white font-bold bordered rounded ml-1">
+                                        <h2 className='text-sm'>FIRST YEAR</h2>
                                     </div>
 
-                                    <div class="stat w-1/4  bg-[#0095a8] text-white font-bold bordered ml-1 rounded">
-                                        <h2 className='text-right'>RENEWAL</h2>
+                                    <div class="stat w-32  bg-[#0095a8] text-white font-bold bordered ml-1 rounded">
+                                        <h2 className='text-sm'>RENEWAL</h2>
                                     </div>
-                                    <div class="stat w-1/4  bg-[#0095a8] text-white font-bold bordered ml-1 rounded">
-                                        <h2 className='text-right'>TOTAL</h2>
+                                    <div class="stat w-32  bg-[#0095a8] text-white font-bold bordered ml-1 rounded">
+                                        <h2 className='text-sm'>TOTAL</h2>
                                     </div>
                                 </div>
 
                                 <div className="ml-2 flex  w-full">
-                                    <div class="stat w-1/3  bg-[#0095a8] text-white font-bold bordered rounded">
-                                        < h2 className='text-right bordered rounded '>FIRST YEAR</h2 >
+                                    <div class="stat w-32  bg-[#0095a8] text-white font-bold bordered rounded">
+                                        < h2 className='text-sm bordered rounded '>FIRST YEAR</h2 >
                                     </div >
 
-                                    <div class="stat w-1/3  bg-[#0095a8] text-white font-bold bordered rounded ml-1">
-                                        <h2 className='text-right'>RENEWAL</h2>
+                                    <div class="stat w-32  bg-[#0095a8] text-white font-bold bordered rounded ml-1">
+                                        <h2 className='text-sm'>RENEWAL</h2>
                                     </div>
 
-                                    <div class="stat w-1/3  bg-[#0095a8] text-white font-bold bordered ml-1 rounded">
-                                        <h2 className='text-right'>TOTAL</h2>
+
+                                    <div class="stat w-48  bg-[#0095a8] text-white font-bold bordered ml-1 rounded">
+                                        <h2 className='text-sm text-right'>TOTAL</h2>
                                     </div>
+
 
                                 </div>
 
 
-                                <div className="flex  w-60">
+                                <div className="flex  ">
+                                    <div class="stat w-32  bg-[#005b4f] text-white font-bold bordered rounded ml-1">
+                                        <h2 className='text-xm'>FY_ TOTAL</h2>
+                                    </div>
+                                    <div class="stat w-32  bg-[#005b4f] text-white font-bold bordered rounded ml-1">
+                                        <h2 className='text-xm'>REN_TOTAL</h2>
+                                    </div>
 
-                                    <div class="stat w-48  bg-[#005b4f] text-white font-bold bordered ml-1 rounded">
-                                        <h2 className='text-right'>TOTAL(EKOK+SB)</h2>
+                                    <div class="stat w-40 bg-[#005b4f] text-white font-bold bordered ml-1 rounded">
+                                        <h2 className='text-xm text-left'>TOTAL(EKOK+SB)</h2>
                                     </div>
                                 </div>
 
@@ -294,8 +305,6 @@ const DailyBusiness = () => {
 
             </div>
         </div>
-
-
 
 
     );

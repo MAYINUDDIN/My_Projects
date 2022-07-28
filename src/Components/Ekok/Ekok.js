@@ -15,7 +15,7 @@ const Ekok = () => {
     const [ekokdataa] = useData();
     const itemProducts = ekokdataa;
     console.log(itemProducts);
-
+    // window.location.reload('/ekok');
     // console.log(data.Policy_Statement);
     const [ekokData, setEkokData] = useState([]);
     const [reData, setReData] = useState([]);
