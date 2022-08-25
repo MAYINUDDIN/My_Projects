@@ -11,8 +11,8 @@ const EkokTotal = ({ edaily }) => {
 
 
     return (
-        <div className="ml-0 flex mt-1 mb-5   w-full">
-            <div class="stat w-48  bg-[#005b4f] text-white font-bold bordered rounded">
+        <div className="ml-0 flex justify-center  w-full">
+            <div class="stat w-40 bg-[#005b4f] text-white font-bold bordered rounded">
                 < h2 className='text-left bordered rounded text-sm'>GRAND TOTAL : </h2 >
             </div >
 
@@ -23,7 +23,7 @@ const EkokTotal = ({ edaily }) => {
             <div class="stat w-32  bg-[#005b4f] text-white font-bold bordered ml-1 rounded">
                 <h2 className='text-right text-md'>{t_renewal}</h2>
             </div>
-            <div class="stat w-32  bg-[#005b4f] text-white font-bold bordered ml-1 rounded">
+            <div class="stat w-48  bg-[#005b4f] text-white font-bold bordered ml-1 rounded">
                 <h2 className='text-right text-md'>{total}</h2>
             </div>
         </div>

@@ -33,8 +33,6 @@ const DailybusinessDetails = () => {
                         re: (partss[2]),
                         total: (partss[3])
 
-
-
                     };
                     return ph;
                 });

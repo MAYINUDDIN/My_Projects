@@ -108,7 +108,7 @@ const Sb = () => {
             <div className="row container-fluid mt-0 p-0">
                 <div class="shadow p-3 mb-2 bg-body rounded">
                     <div className=" col-md-12 mt-0">
-                        <div style={{ width: "100%", height: "250px", marginTop: '0px', background: '#fafafa' }}>
+                        <div style={{ width: "100%", height: "245px", marginTop: '0px', background: '#fafafa' }}>
                             <ResponsiveContainer>
                                 <ComposedChart
                                     width={1000}
@@ -129,7 +129,7 @@ const Sb = () => {
                                         axisLine={{ stroke: "#333" }}
                                     />
                                     <Tooltip />
-                                    <Legend verticalAlign="top" align="left" height={110} />
+                                    <Legend verticalAlign="top" align="left" height={150} />
 
                                     <Bar
                                         radius={[0, 0, 0, 0]}
@@ -146,7 +146,7 @@ const Sb = () => {
                                     <Bar
                                         radius={[0, 0, 0, 0]}
                                         dataKey="business"
-                                        barSize={25}
+                                        barSize={30}
                                         fill="#00600f"
                                         yAxisId="left"
                                         tick={{ fill: 'dark' }}

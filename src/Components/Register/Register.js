@@ -45,8 +45,6 @@ const Register = () => {
 
         createUserWithEmailAndPassword(email, password)
 
-
-
     }
 
     return (

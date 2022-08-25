@@ -9,18 +9,26 @@ import Daily from "./Daily";
 import DailybusinessDetails from "./DailybusinessDetails";
 import Daily_sb from "./Daily_sb";
 import EkokTotal from "./EkokTotal";
+import Final_business from "./Final_business";
 import SbTotal from "./SbTotal";
 import Total from "./Total";
 import TotalBusiness from "./TotalBusiness";
 const DailyBusiness = () => {
 
-    const [dailydata, SetDailyData] = useState([]);
-    console.log(dailydata);
 
+    const [finaldata, SetFinalData] = useState([]);
+    // console.log(finaldata);
     const [edailydata, SetEDailyData] = useState([]);
+    console.log(edailydata);
+
+    const [dailydata, SetDailyData] = useState([]);
+    // console.log(dailydata);
+
+
+
     const [sdailydata, SetSDailyData] = useState([]);
     const [total, SetTotal] = useState([]);
-
+    console.log(total);
     const [dailydatasb, SetDailyDatasb] = useState([]);
 
 
@@ -39,54 +47,23 @@ const DailyBusiness = () => {
     }
 
 
-    const daily = () => {
+        const final = () => {
 
-        fetch(`http://202.164.213.67/payment/daily/sb_business.php?FROM_DATE=${fromdate}&&TOO_DATE=${todate}`)
+        fetch(`http://202.164.213.67/payment/daily/final.php?FROM_DATE=${fromdate}&&TOO_DATE=${todate}`)
             .then(Response => Response.json())
             .then(data => {
                 const loadedData = data;
 
                 const dData = loadedData.map(ekok => {
                     const d = ekok.OFF_NAME;
-                    console.log(d);
+                    // console.log(d);
 
                 });
-                SetDailyDatasb(loadedData);
+                SetFinalData(loadedData);
 
             });
 
-        fetch(`http://202.164.213.67/payment/daily/ekok_business.php?FROM_DATE=${fromdate}&&TOO_DATE=${todate}`)
-            .then(Response => Response.json())
-            .then(data => {
-                const loadedData = data;
-
-                const dData = loadedData.map(ekok => {
-                    const d = ekok.OFF_NAME;
-                    console.log(d);
-
-                });
-                SetDailyData(loadedData);
-
-            });
-
-
-
-
-        fetch(`http://202.164.213.67/payment/daily/ekoksb.php?FROM_DATE=${fromdate}&&TOO_DATE=${todate}`)
-            .then(Response => Response.json())
-            .then(data => {
-                const loadedTData = data;
-
-                const dData = loadedTData.map(ekok => {
-                    const d = ekok.OFF_NAME;
-                    console.log(d);
-
-                });
-                SetTData(loadedTData);
-
-            });
-
-        fetch(`http://202.164.213.67/payment/daily/ekok_total.php?FROM_DATE=${fromdate}&&TOO_DATE=${todate}`)
+            fetch(`http://202.164.213.67/payment/daily/ekok_total.php?FROM_DATE=${fromdate}&&TOO_DATE=${todate}`)
             .then(Response => Response.json())
             .then(data => {
                 const loadedTData = data;
@@ -100,7 +77,7 @@ const DailyBusiness = () => {
 
             });
 
-        fetch(`http://202.164.213.67/payment/daily/sb_total.php?FROM_DATE=${fromdate}&&TOO_DATE=${todate}`)
+                 fetch(`http://202.164.213.67/payment/daily/sb_total.php?FROM_DATE=${fromdate}&&TOO_DATE=${todate}`)
             .then(Response => Response.json())
             .then(data => {
                 const loadedTData = data;
@@ -114,8 +91,7 @@ const DailyBusiness = () => {
 
             });
 
-
-        fetch(`http://202.164.213.67/payment/daily/all_total.php?FROM_DATE=${fromdate}&&TOO_DATE=${todate}`)
+                    fetch(`http://202.164.213.67/payment/daily/all_total.php?FROM_DATE=${fromdate}&&TOO_DATE=${todate}`)
             .then(Response => Response.json())
             .then(data => {
                 const loadedTData = data;
@@ -128,9 +104,103 @@ const DailyBusiness = () => {
                 SetTotal(loadedTData);
 
             });
-
+       
 
     }
+
+
+    // const daily = () => {
+
+    //     fetch(`http://202.164.213.67/payment/daily/sb_business.php?FROM_DATE=${fromdate}&&TOO_DATE=${todate}`)
+    //         .then(Response => Response.json())
+    //         .then(data => {
+    //             const loadedData = data;
+
+    //             const dData = loadedData.map(ekok => {
+    //                 const d = ekok.OFF_NAME;
+    //                 console.log(d);
+
+    //             });
+    //             SetDailyDatasb(loadedData);
+
+    //         });
+
+    //     fetch(`http://202.164.213.67/payment/daily/ekok_business.php?FROM_DATE=${fromdate}&&TOO_DATE=${todate}`)
+    //         .then(Response => Response.json())
+    //         .then(data => {
+    //             const loadedData = data;
+
+    //             const dData = loadedData.map(ekok => {
+    //                 const d = ekok.OFF_NAME;
+    //                 console.log(d);
+
+    //             });
+    //             SetDailyData(loadedData);
+
+    //         });
+
+
+
+
+    //     fetch(`http://202.164.213.67/payment/daily/ekoksb.php?FROM_DATE=${fromdate}&&TOO_DATE=${todate}`)
+    //         .then(Response => Response.json())
+    //         .then(data => {
+    //             const loadedTData = data;
+
+    //             const dData = loadedTData.map(ekok => {
+    //                 const d = ekok.OFF_NAME;
+    //                 console.log(d);
+
+    //             });
+    //             SetTData(loadedTData);
+
+    //         });
+
+    //     fetch(`http://202.164.213.67/payment/daily/ekok_total.php?FROM_DATE=${fromdate}&&TOO_DATE=${todate}`)
+    //         .then(Response => Response.json())
+    //         .then(data => {
+    //             const loadedTData = data;
+
+    //             const dData = loadedTData.map(ekok => {
+    //                 const d = ekok.OFF_NAME;
+    //                 console.log(d);
+
+    //             });
+    //             SetEDailyData(loadedTData);
+
+    //         });
+
+    //     fetch(`http://202.164.213.67/payment/daily/sb_total.php?FROM_DATE=${fromdate}&&TOO_DATE=${todate}`)
+    //         .then(Response => Response.json())
+    //         .then(data => {
+    //             const loadedTData = data;
+
+    //             const dData = loadedTData.map(ekok => {
+    //                 const d = ekok.OFF_NAME;
+    //                 console.log(d);
+
+    //             });
+    //             SetSDailyData(loadedTData);
+
+    //         });
+
+
+    //     fetch(`http://202.164.213.67/payment/daily/all_total.php?FROM_DATE=${fromdate}&&TOO_DATE=${todate}`)
+    //         .then(Response => Response.json())
+    //         .then(data => {
+    //             const loadedTData = data;
+
+    //             const dData = loadedTData.map(ekok => {
+    //                 const d = ekok.OFF_NAME;
+    //                 console.log(d);
+
+    //             });
+    //             SetTotal(loadedTData);
+
+    //         });
+
+
+    // }
 
 
     return (
@@ -142,9 +212,10 @@ const DailyBusiness = () => {
                     <div className="flex text-center align-items-center">
                         <p className="text-sm font-bold mr-3">FROM DATE :   </p>
                         <input className="text-dark shadow rounded p-2 text-center" type="date" onChange={e => setFromDate(e.target.value)} />
-                        {/* <h3 className="mt-5">Selected Date{date}</h3> */}
 
                     </div>
+
+
 
                 </div>
 
@@ -165,7 +236,7 @@ const DailyBusiness = () => {
                         </div> */}
 
 
-                        <button onClick={daily} className=" m-3 btn-primary  text-white btn-md px-10 text-lg rounded bg-[#002f6c] uppercase">Submit</button>
+                        <button onClick={final} className=" m-3 btn-primary  text-white btn-md px-10 text-lg rounded bg-[#002f6c] uppercase">Submit</button>
                         {/* <button onClick={total} className=" m-3 btn-primary  text-white btn-md px-10 text-lg rounded bg-[#002f6c] uppercase">For Total</button> */}
 
                         {/* <h3 className="mt-5">Selected Date{date}</h3> */}
@@ -177,133 +248,139 @@ const DailyBusiness = () => {
 
             </div>
 
+       
+
             {
-                dailydata.length === 0 ? <p className='text-center'></p> :
-
-
-                    <div className="mt-2">
-                        <div class="grid grid-cols-1 gap-1 mt-1 p-0 ml-2 mr-2 items-align-center">
-                            <div className="flex w-full">
-
-                                <div class="stat w-full bg-[#0077c2] text-white font-bold bordered ">
-                                    < h2 className='text-center bordered rounded '>EKOK</h2 >
-                                </div >
-                                <div class="stat w-full ml-0 bg-[#0077c2] text-white font-bold bordered ">
-                                    < h2 className='text-center bordered rounded '>SHARBAJANIN</h2 >
-                                </div >
-                                <div class="stat w-full ml-0 bg-[#0077c2] text-white font-bold bordered ">
-                                    < h2 className='text-center bordered rounded '>TOTAL (EKOK+SB)</h2 >
-                                </div >
-                            </div>
-                        </div>
-
-                        <div class="grid grid-cols-1 lg:grid-cols-1  gap-0 mt-1 p-0 ml-2 mr-2 ">
-                            <div className="flex ">
-                                <div className="ml-0 flex  w-full">
-                                    <div class="stat w-48  bg-[#005b4f] text-white font-bold bordered rounded">
-                                        < h2 className='text-left bordered rounded text-sm'>DIVISION NAME</h2 >
+             
+                
+                finaldata.length === 0 ? <p className='text-center'></p> :
+                    
+                       <div className="ml-0 mt-5 flex justify-center  w-full">
+                        
+                                    <div class="stat w-48  bg-[#005b4f] text-white font-bold bordered ">
+                                        < h2 className='text-left bordered rounded text-sm  font-bold'></h2 >
                                     </div >
 
-                                    <div class="stat w-32 bg-[#0095a8] text-white font-bold bordered rounded ml-1">
-                                        <h2 className='text-sm'>FIRST YEAR</h2>
+                                    <div class="stat w-32 bg-[#005b4f] text-white  bordered  ml-0">
+                                        <h2 className='text-sm font-bold'></h2>
                                     </div>
 
-                                    <div class="stat w-32  bg-[#0095a8] text-white font-bold bordered ml-1 rounded">
-                                        <h2 className='text-sm'>RENEWAL</h2>
+                                    <div class="stat w-32  bg-[#005b4f] text-white font-bold bordered ml-0 ">
+                                        <h2 className='text-lg font-bold'>EKOK</h2>
                                     </div>
-                                    <div class="stat w-32  bg-[#0095a8] text-white font-bold bordered ml-1 rounded">
-                                        <h2 className='text-sm'>TOTAL</h2>
+                                    <div class="stat w-48  bg-[#005b4f] text-white font-bold bordered ml-0 ">
+                                        <h2 className='text-sm'></h2>
                                     </div>
+                                    
+                                   <div class="stat w-32 ml-0  bg-[#005b4f] text-white font-bold bordered ">
+                                        < h2 className='text-sm bordered rounded '></h2 >
+                                    </div >
+
+                                    <div class="stat w-80  bg-[#005b4f] text-white font-bold bordered  ml-0">
+                                        <h2 className='text-lg font-bold text-left'>SHARBOJANIN</h2>
+                                    </div>
+
+
+                                   
+                    
+                                <div class="stat w-32  bg-[#005b4f] text-white font-bold bordered  ml-0">
+                                        <h2 className='text-sm'></h2>
+                                    </div>
+                                    <div class="stat w-80  bg-[#005b4f] text-white font-bold bordered ">
+                                        <h2 className='text-lg text-left '>TOTAL (EKOK+SB)</h2>
+                                    </div>
+
+                                  
                                 </div>
 
-                                <div className="ml-2 flex  w-full">
-                                    <div class="stat w-32  bg-[#0095a8] text-white font-bold bordered rounded">
+              }
+            {
+             
+                
+                finaldata.length === 0 ? <p className='text-center'></p> :
+                    
+                    
+                    <div className="ml-0 mt-1 flex justify-center  w-full">
+                        
+                                    <div class="stat w-40  bg-[#005b4f] text-white font-bold bordered rounded">
+                                        < h2 className='text-left bordered rounded text-sm  font-bold'>DIVISION NAME</h2 >
+                                    </div >
+
+                                    <div class="stat w-32 bg-[#004ecb] text-white  bordered rounded ml-1">
+                                        <h2 className='text-sm font-bold'>FIRST YEAR</h2>
+                                    </div>
+
+                                    <div class="stat w-32  bg-[#004ecb] text-white font-bold bordered ml-1 rounded">
+                                        <h2 className='text-sm font-bold'>RENEWAL</h2>
+                                    </div>
+                                    <div class="stat w-48  bg-[#004ecb] text-white font-bold bordered ml-1 rounded">
+                                        <h2 className='text-sm'>TOTAL (EKOK)</h2>
+                                    </div>
+                                    
+                                   <div class="stat w-32 ml-1  bg-[#004ecb] text-white font-bold bordered rounded">
                                         < h2 className='text-sm bordered rounded '>FIRST YEAR</h2 >
                                     </div >
 
-                                    <div class="stat w-32  bg-[#0095a8] text-white font-bold bordered rounded ml-1">
+                                    <div class="stat w-32  bg-[#004ecb] text-white font-bold bordered rounded ml-1">
                                         <h2 className='text-sm'>RENEWAL</h2>
                                     </div>
 
 
-                                    <div class="stat w-48  bg-[#0095a8] text-white font-bold bordered ml-1 rounded">
-                                        <h2 className='text-sm text-right'>TOTAL</h2>
-                                    </div>
-
-
-                                </div>
-
-
-                                <div className="flex  ">
-                                    <div class="stat w-32  bg-[#005b4f] text-white font-bold bordered rounded ml-1">
-                                        <h2 className='text-xm'>FY_ TOTAL</h2>
+                                    <div class="stat w-48  bg-[#004ecb] text-white font-bold bordered ml-1 rounded">
+                                        <h2 className='text-sm text-center'>TOTAL (SB)</h2>
+                                     </div>
+                    
+                                <div class="stat w-32  bg-[#005b4f] text-white font-bold bordered rounded ml-1">
+                                        <h2 className='text-sm'>TOTAL FY</h2>
                                     </div>
                                     <div class="stat w-32  bg-[#005b4f] text-white font-bold bordered rounded ml-1">
-                                        <h2 className='text-xm'>REN_TOTAL</h2>
+                                        <h2 className='text-sm'>TOTAL REN</h2>
                                     </div>
 
-                                    <div class="stat w-40 bg-[#005b4f] text-white font-bold bordered ml-1 rounded">
-                                        <h2 className='text-xm text-left'>TOTAL(EKOK+SB)</h2>
+                                    <div class="stat w-48 bg-[#005b4f] text-white font-bold bordered ml-1 rounded">
+                                        <h2 className='text-sm text-left'>TOTAL(EKOK+SB)</h2>
                                     </div>
                                 </div>
 
-                            </div>
-
-                        </div>
-
-                    </div>
-
-            }
-
-            {/* <div class="grid grid-cols-1 gap-1 mt-1 "> */}
-            {/* <h1 className=" text-success text-2xl font-bold">DAILY BUSINESS REPORT  <span className='text-fareast text-dark  font-bold text-lg'> (From Date: {fromdate} To Date: {todate})</span> </h1> */}
-
-            <div class="grid grid-cols-1  gap-1 mt-0 p-0 ml-2 mr-2 ">
-                <div className="flex">
-                    <div className="w-full">
+              }
+                  
+             <div className=" mb-3">
+                
                         {
-                            dailydata.length === 0 ? <p className='text-center'></p> :
-                                dailydata.map(dailyy => <Daily key={dailyy.id} dailyy={dailyy}></Daily>)
-
-                        }
-
-                        {
+                            finaldata.length === 0 ? <p className='text-center'></p> :
+                                finaldata.map(f => <Final_business key={f.id} f={f}></Final_business>)
+                }
+                
+                <div className="ml-0 mt-1 flex justify-center  w-full">
+                     <div className=" mb-3">
+                         {
                             edailydata.length === 0 ? <p className='text-center'></p> :
                                 edailydata.map(edaily => <EkokTotal key={edaily.id} edaily={edaily}></EkokTotal>)
-
-                        }
-
+                           
+                         }
                     </div>
-                    <div className="w-full mb-3">
-
-                        {
-                            dailydatasb.length === 0 ? <p className='text-center'></p> :
-                                dailydatasb.map(dailyysb => <Daily_sb key={dailyysb.id} dailyysb={dailyysb}></Daily_sb>)
-
-                        }
-
-                        {
+                        <div className=" mb-3">  
+                    {
                             sdailydata.length === 0 ? <p className='text-center'></p> :
-                                sdailydata.map(sdaily => <SbTotal key={sdaily.id} sdaily={sdaily}></SbTotal>)
+                            sdailydata.map(sdaily => <SbTotal key={sdaily.id} sdaily={sdaily}></SbTotal>)
 
                         }
-
                     </div>
-                    <div className=" mb-3">
-                        {
-                            tdata.length === 0 ? <p className='text-center'></p> :
-                                tdata.map(totl => <TotalBusiness key={totl.id} totl={totl}></TotalBusiness>)
-                        }
-
-                        {
+                     <div className=" mb-3">  
+                 
+                       {
                             total.length === 0 ? <p className='text-center'></p> :
                                 total.map(totll => <Total key={totll.id} totll={totll}></Total>)
                         }
+                        </div>
+                      
                     </div>
 
-                </div>
+               </div>
 
-            </div>
+            
+        
+
         </div>
 
 

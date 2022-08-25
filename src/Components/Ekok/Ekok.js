@@ -22,6 +22,9 @@ const Ekok = () => {
 
 
 
+
+    
+
     useEffect(() => {
         axios.get('http://202.164.213.67/payment/businesss.php')
             .then(data => {

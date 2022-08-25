@@ -10,7 +10,7 @@ const SbTotal = ({ sdaily }) => {
 
 
     return (
-        <div className="ml-2 flex mt-1   w-full">
+             <div className="ml-1 flex justify-center  w-full">
             <div class="stat w-32  bg-[#005b4f] text-white font-bold bordered rounded">
                 < h2 className='text-right bordered rounded text-md font-bold'>{t_first_yr}</h2 >
             </div >
