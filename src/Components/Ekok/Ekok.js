@@ -18,15 +18,13 @@ const Ekok = () => {
     // window.location.reload('/ekok');
     // console.log(data.Policy_Statement);
     const [ekokData, setEkokData] = useState([]);
+    console.log(ekokData);
     const [reData, setReData] = useState([]);
 
 
 
-
-    
-
     useEffect(() => {
-        axios.get('http://202.164.213.67/payment/businesss.php')
+        axios.get('http://202.164.213.67/payment/daily_business/div_ekok.php')
             .then(data => {
                 const loadedData = data.data;
 
@@ -39,7 +37,7 @@ const Ekok = () => {
                     const ph = {
                         off_code: partss[0],
                         name: partss[1],
-                        target: (partss[2]) / figCore,
+                        target: (partss[2]),
                         business: (partss[3]),
                         ratio: (partss[4]),
                     };
@@ -52,7 +50,7 @@ const Ekok = () => {
 
     // RENUAL DATA ================================================
     useEffect(() => {
-        axios.get('http://202.164.213.67/payment/businesss.php')
+        axios.get('http://202.164.213.67/payment/daily_business/div_ekok.php')
             .then(data => {
                 const loadedData = data.data;
 
@@ -65,7 +63,7 @@ const Ekok = () => {
                     const ph = {
                         off_code: parts[0],
                         name: parts[1],
-                        target: (parts[2]) / figCore,
+                        target: (parts[2]) ,
                         business: (parts[3]),
                         ratio: (parts[4]),
                         re_target: (parts[5]),
@@ -108,7 +106,7 @@ const Ekok = () => {
                                     data={ekokData}
 
                                     margin={{
-                                        top: 0,
+                                        top: 30,
                                         right: 0,
                                         left: 0,
                                         bottom: 0
@@ -129,14 +127,13 @@ const Ekok = () => {
                                     /> */}
 
                                     <Tooltip />
-                                    <Legend verticalAlign="top" align="left" height={80} />
+                                    <Legend verticalAlign="top" align="left" height={130} />
 
 
                                     <Bar
-
                                         radius={[0, 0, 0, 0]}
                                         dataKey="target"
-                                        barSize={30}
+                                        barSize={40}
                                         fill="#0031ca"
                                         yAxisId="left"
                                         tick={{ fill: 'dark' }}
@@ -148,7 +145,7 @@ const Ekok = () => {
                                     <Bar
                                         radius={[0, 0, 0, 0]}
                                         dataKey="business"
-                                        barSize={25}
+                                        barSize={40}
                                         fill="#00600f"
                                         yAxisId="left"
                                         legendType="rect"
@@ -196,7 +193,7 @@ const Ekok = () => {
 
                         <div className='flex justify-center justify-evenly px-10 mt-1'>
                             {
-                                itemProducts.map(product => <Etest key={product.id} product={product}></Etest>)
+                                ekokData.map(product => <Etest key={product.id} product={product}></Etest>)
 
                             }
 
@@ -242,7 +239,7 @@ const Ekok = () => {
                                     <Bar
                                         radius={[0, 0, 0, 0]}
                                         dataKey="re_target"
-                                        barSize={30}
+                                        barSize={40}
                                         fill="#0088a3"
                                         yAxisId="left"
                                         tick={{ fill: 'dark' }}
@@ -254,7 +251,7 @@ const Ekok = () => {
                                     <Bar
                                         radius={[0, 0, 0, 0]}
                                         dataKey="re_business"
-                                        barSize={25}
+                                        barSize={40}
                                         fill="#004ba0"
                                         yAxisId="left"
                                         legendType="rect"
@@ -307,11 +304,11 @@ const Ekok = () => {
             <div className="row container-fluid p-1">
                 <div class="shadow p-3  mb-5 bg-body rounded">
                     <div className=" col-md-12 mt-0">
-                        <div style={{ width: "100%", height: "220px", marginTop: '0px', background: '#fafafa' }}>
+                        <div style={{ width: "100%", height: "230px", marginTop: '0px', background: '#fafafa' }}>
                             <ResponsiveContainer>
                                 <ComposedChart
                                     width={1000}
-                                    height={500}
+                                    height={800}
                                     data={reData}
                                     margin={{
                                         top: 0,
@@ -333,7 +330,7 @@ const Ekok = () => {
                                     <Bar
                                         radius={[0, 0, 0, 0]}
                                         dataKey="t_target"
-                                        barSize={30}
+                                        barSize={40}
                                         fill="#0068ba"
                                         yAxisId="left"
                                         tick={{ fill: 'dark' }}
@@ -345,7 +342,7 @@ const Ekok = () => {
                                     <Bar
                                         radius={[0, 0, 0, 0]}
                                         dataKey="t_bus"
-                                        barSize={25}
+                                        barSize={40}
                                         fill="#5cac50"
                                         yAxisId="left"
                                         legendType="rect"

@@ -4,14 +4,16 @@ import { Link, NavLink, useParams } from 'react-router-dom';
 
 const Etest = ({ product }) => {
 
-    const { OFF_CODE, OFF_NAMEE } = product;
-    console.log(OFF_CODE);
+    console.log(product);
+
+    const { off_code, name } = product;
+    console.log(off_code,name);
     // console.log(props.d.off_code);
 
     const [ekokData, setEkokData] = useState([]);
 
     useEffect(() => {
-        axios.get(`http://202.164.213.67/payment/sc_ekok.php?DIV_CODE=${OFF_CODE}`)
+        axios.get(`http://202.164.213.67/payment/sc_ekok.php?DIV_CODE=${off_code}`)
             .then(data => {
                 const loadedData = data.data.Policy_Statement;
 
@@ -42,7 +44,7 @@ const Etest = ({ product }) => {
     return (
         <div>
 
-            <Link to={`/DIV_CODE=${OFF_CODE}`}> <button class="btn rounded bordered btn-success text-xs drop-shadow-lg bg-[#087f23] btn-sm text-white">{OFF_NAMEE} </button></Link>
+            <Link to={`/DIV_CODE=${off_code}`}> <button class="btn rounded bordered btn-success text-xs drop-shadow-lg bg-[#087f23] btn-sm text-white">{name} </button></Link>
 
         </div>
     );

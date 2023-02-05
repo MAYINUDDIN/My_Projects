@@ -4,7 +4,7 @@ const useData = () => {
     const [sbdataa, setSbdataa] = useState([]);
 
     useEffect(() => {
-        fetch('http://202.164.213.67/payment/business_sb.php')
+        fetch('http://202.164.213.67/payment/daily_business/div_sb.php')
             .then(res => res.json())
             .then(data => setSbdataa(data))
 

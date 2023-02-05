@@ -33,7 +33,7 @@ const Login = () => {
     const handleSignIn = (event) => {
 
         event.preventDefault();
-        const email = event.target.email.value;
+        const email = event.target.email.value+"@gmail.com";
         const password = event.target.password.value;
         signInWithEmailAndPassword(email, password);
     }

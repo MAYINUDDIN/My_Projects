@@ -19,12 +19,10 @@ const DailyBusiness = () => {
     const [finaldata, SetFinalData] = useState([]);
     // console.log(finaldata);
     const [edailydata, SetEDailyData] = useState([]);
-    console.log(edailydata);
+    // console.log(edailydata);
 
     const [dailydata, SetDailyData] = useState([]);
     // console.log(dailydata);
-
-
 
     const [sdailydata, SetSDailyData] = useState([]);
     const [total, SetTotal] = useState([]);
@@ -39,17 +37,17 @@ const DailyBusiness = () => {
     const [todate, setToDate] = useState();
     console.log(fromdate, todate);
 
-    const [type, setOption] = useState('');
+    const [type, setOption] = useState('4');
 
     console.log(type);
     function handleChange(event) {
         setOption(event.target.value)
     }
-
+   
 
         const final = () => {
 
-        fetch(`http://202.164.213.67/payment/daily/final.php?FROM_DATE=${fromdate}&&TOO_DATE=${todate}`)
+        fetch(`http://202.164.213.67/payment/daily/final.php?FROM_DATE=${fromdate}&&TOO_DATE=${todate}&&OFF_TYPE=${type}`)
             .then(Response => Response.json())
             .then(data => {
                 const loadedData = data;
@@ -63,7 +61,7 @@ const DailyBusiness = () => {
 
             });
 
-            fetch(`http://202.164.213.67/payment/daily/ekok_total.php?FROM_DATE=${fromdate}&&TOO_DATE=${todate}`)
+            fetch(`http://202.164.213.67/payment/daily/ekok_total.php?FROM_DATE=${fromdate}&&TOO_DATE=${todate}&&OFF_TYPE=${type}`)
             .then(Response => Response.json())
             .then(data => {
                 const loadedTData = data;
@@ -216,7 +214,6 @@ const DailyBusiness = () => {
                     </div>
 
 
-
                 </div>
 
 
@@ -226,14 +223,16 @@ const DailyBusiness = () => {
                         <input className="text-dark shadow rounded p-2 text-center" type="date" onChange={e => setToDate(e.target.value)} />
                         {/* <Link to={`/Daily_business=${fromdate}=${todate}`}>   <button className=" m-3 btn-info text-white btn-sm bg-[#4fc3f7] uppercase">Submit</button></Link> */}
 
-                        {/* <div className="flex text-center text-dark align-items-center ml-3">
+                        <div className="flex text-center text-dark align-items-center ml-3">
                             <select className="text-dark shadow rounded p-2 pl-5 px-12 text-center" name='option' onChange={handleChange}>
-                                <option >Select Type</option>
-                                <option value="EKOK">EKOK</option>
-                                <option value="SB">SB</option>
+                                {/* <option >Select Type</option> */}
+                                <option className="text-left" value="4">DIVISION</option>
+                                <option className="text-left" value="3">SERVICE CENTER</option>
+                                 <option className="text-left" value="2">ZONAL OFFICE</option>
+                                <option className="text-left" value="1">BRANCH OFFICE</option>
 
                             </select>
-                        </div> */}
+                        </div>
 
 
                         <button onClick={final} className=" m-3 btn-primary  text-white btn-md px-10 text-lg rounded bg-[#002f6c] uppercase">Submit</button>
@@ -253,9 +252,9 @@ const DailyBusiness = () => {
             {
              
                 
-                finaldata.length === 0 ? <p className='text-center'></p> :
+                finaldata.length === 0 ? <p className='text-center font-sm'><Loading/></p> :
                     
-                       <div className="ml-0 mt-5 flex justify-center  w-full">
+                       <div className="ml-0 mt-5 flex justify-center w-full">
                         
                                     <div class="stat w-48  bg-[#005b4f] text-white font-bold bordered ">
                                         < h2 className='text-left bordered rounded text-sm  font-bold'></h2 >
@@ -299,9 +298,8 @@ const DailyBusiness = () => {
                 
                 finaldata.length === 0 ? <p className='text-center'></p> :
                     
-                    
-                    <div className="ml-0 mt-1 flex justify-center  w-full">
-                        
+                    <div className="ml-0 mt-1 flex justify-center w-96  lg:w-full">
+
                                     <div class="stat w-40  bg-[#005b4f] text-white font-bold bordered rounded">
                                         < h2 className='text-left bordered rounded text-sm  font-bold'>DIVISION NAME</h2 >
                                     </div >

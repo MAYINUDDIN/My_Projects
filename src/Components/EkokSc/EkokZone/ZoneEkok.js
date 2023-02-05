@@ -117,7 +117,7 @@ const ZoneEkok = () => {
                                     tickLine={false}
                                     yAxisId="left"
                                     axisLine={{ stroke: "#f5f5f5" }}
-                                    unit="C"
+                                    unit="L"
                                     tickCount={10}
                                 />
                                 <YAxis

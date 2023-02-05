@@ -21,46 +21,47 @@ const Final_business = ({ f }) => {
   
 
     return (
-         <div className="ml-0 flex justify-center  w-full">
-                                    <div class="stat w-40 mt-1 bg-success text-white font-bold bordered rounded">
-                                        < h2 className='text-left bordered rounded text-sm font-bold'>{ OFF_NAME}</h2 >
-                                    </div >
+         <div className="ml-0 flex justify-center w-96  lg:w-full">
+                <div class="stat w-24 lg:w-40 mt-1 bg-success text-white font-bold bordered rounded">
+                 < h2 className='text-left bordered rounded text-sm font-bold'>{ OFF_NAME}</h2 >
+                </div >
 
-                                    <div class="stat w-32 mt-1 bg-[#0086c3] text-white font-bold bordered rounded ml-1">
-                                              <h2 className='text-sm text-right font-bold'>{ first_yr_ekok}</h2>
-                                    </div>
+                <div class="stat w-24 lg:w-32 mt-1 bg-[#0086c3] text-white font-bold bordered rounded ml-1">
+                    <h2 className='text-sm text-right font-bold'>{ first_yr_ekok}</h2>
+                </div>
 
-                                    <div class="stat w-32 mt-1 bg-[#0086c3] text-white font-bold bordered ml-1 rounded">
-                                        <h2 className='text-sm text-right font-bold '>{ first_yr_re}</h2>
-                                    </div>
-                                    <div class="stat w-48 mt-1 bg-[#0086c3] text-white font-bold bordered ml-1 rounded">
-                                        <h2 className='text-sm text-right font-bold text-right'>{ total_ekok}</h2>
-                                    </div>
+                 <div class="stat w-24 lg:w-32 mt-1 bg-[#0086c3] text-white font-bold bordered ml-1 rounded">
+                   <h2 className='text-sm text-right font-bold '>{ first_yr_re}</h2>
+                  </div>
+                   <div class="stat w-24 lg:w-48 mt-1 bg-[#0086c3] text-white font-bold bordered ml-1 rounded">
+                    <h2 className='text-sm text-right font-bold text-right'>{ total_ekok}</h2>
+                   </div>
                                     
-                                   <div class="stat w-32 ml-1 mt-1  bg-[#007c91] text-white font-bold bordered rounded">
-                                      < h2 className='text-sm bordered rounded font-bold text-right'>{ first_yr_sb}</h2 >
-                                    </div >
+                   <div class="stat w-32 ml-1 mt-1  bg-[#007c91] text-white font-bold bordered rounded">
+                       < h2 className='text-sm bordered rounded font-bold text-right'>{ first_yr_sb}</h2 >
+                     </div >
 
-                                    <div class="stat w-32 mt-1 bg-[#007c91] text-white font-bold bordered rounded ml-1">
-                                      <h2 className='text-sm font-bold text-right'>{ first_yr_re_sb}</h2>
-                                    </div>
+                    <div class="stat w-32 mt-1 bg-[#007c91] text-white font-bold bordered rounded ml-1">
+                        <h2 className='text-sm font-bold text-right'>{ first_yr_re_sb}</h2>
+                     </div>
 
 
-                                    <div class="stat w-48 mt-1  bg-[#007c91] text-white font-bold bordered ml-1 rounded">
-                                           <h2 className='text-sm font-bold text-right'>{ total_sb}</h2>
-                                     </div>
+                      <div class="stat w-48 mt-1  bg-[#007c91] text-white font-bold bordered ml-1 rounded">
+                        <h2 className='text-sm font-bold text-right'>{ total_sb}</h2>
+                      </div>
                     
-                                <div class="stat w-32 mt-1 bg-success text-white font-bold bordered rounded ml-1">
-                                      <h2 className='text-sm text-right'>{ total_fy}</h2>
-                                    </div>
-                                    <div class="stat w-32 mt-1 bg-success text-white font-bold bordered rounded ml-1">
-                                      <h2 className='text-sm font-bold text-right'>{ total_re}</h2>
-                                    </div>
+                      <div class="stat w-32 mt-1 bg-success text-white font-bold bordered rounded ml-1">
+                        <h2 className='text-sm text-right'>{ total_fy}</h2>
+                      </div>
+                       <div class="stat w-32 mt-1 bg-success text-white font-bold bordered rounded ml-1">
+                          <h2 className='text-sm font-bold text-right'>{ total_re}</h2>
+                      </div>
 
-                                    <div class="stat w-48 mt-1 bg-success text-white font-bold bordered ml-1 rounded">
-                                     <h2 className='text-sm font-bold text-right'>{ all_total}</h2>
-                                    </div>
-                                </div>
+                      <div class="stat w-48 mt-1 bg-success text-white font-bold bordered ml-1 rounded">
+                         <h2 className='text-sm font-bold text-right'>{ all_total}</h2>
+                      </div>
+        
+                      </div>
     );
 };
 

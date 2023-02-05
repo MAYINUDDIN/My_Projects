@@ -25,10 +25,9 @@ const Register = () => {
         navigate('/ekok');
     }
 
-
     const handleCreateUser = event => {
         event.preventDefault();
-        const email = event.target.email.value;
+        const email = event.target.email.value+"@gmail.com";
         const password = event.target.password.value;
         const conf_pass = event.target.confirm_password.value;
 
@@ -62,7 +61,7 @@ const Register = () => {
                         <h3 class="text-center mb-3"></h3>
                         <form onSubmit={handleCreateUser}>
                             <div class="form-group">
-                                <input type="email" name="email" class="form-control rounded-left" placeholder="Email" required />
+                                <input type="text" name="email" class="form-control rounded-left" placeholder="Email" required />
                             </div>
                             <div class="form-group d-flex mt-3">
                                 <input type="password" name="password" class="form-control rounded-left" placeholder="Password" required />
