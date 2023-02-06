@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
 import pic from '../asset/pol_s.gif';
+import Loading from '../Loading';
 import Prinfo from './Prinfo';
 import Statement_details from './Statement_details';
 import Total from './Total';
 const Statement = () => {
 
-    const [statement, setStatement] = useState(['']); 
-    const [statementt, setStatementt] = useState(['']);  
-      const [total, setTotal] = useState(['']);
+    const [statement, setStatement] = useState([]); 
+    const [statementt, setStatementt] = useState([]);  
+      const [total, setTotal] = useState([]);
     console.log(statement);
     // console.log(statementt);
         const StatementResult = event => {
@@ -53,11 +54,16 @@ const Statement = () => {
                     </div>
 
                     {
-                        statement.length === 0 ? <p className='text-center'>Loading</p> :
+                        statement.length === 0 ? <p className='text-center'></p> :
                         statement.map(d => <Statement_details key={d.id} d={d}></Statement_details>)
 
                     }
-                       <div className='lg:px-24 grid lg:grid-cols-4 gap-0 lg:ml-12  mt-2 justify-center p-0'>
+                      
+                    
+                      {
+                        statementt.length === 0 ? <p className='text-center'></p> :
+                       
+ <div className='lg:px-24 grid lg:grid-cols-4 gap-0 lg:ml-12  mt-2 justify-center p-0'>
                 <div className='shadow-lg p-0 bg-[#2e7d32]  text-white text-start rounded'
                     style={{ textTransform: 'uppercase' }}>
                     <h1 className=' lg:p-1 p-2 lg:ml-2 lg:text-md font-bold' >INSTALNO</h1> 
@@ -79,14 +85,15 @@ const Statement = () => {
                   
                    </div>
          
-            </div>
+                    </div>
+                        }
                         {
-                        statementt.length === 0 ? <p className='text-center'>Loading</p> :
+                        statementt.length === 0 ? <p className='text-center'></p> :
                         statementt.map(dd => <Prinfo key={dd.id} dd={dd}></Prinfo>)
 
-                    }
+                        }
                        {
-                        total.length === 0 ? <p className='text-center'>Loading</p> :
+                        total.length === 0 ? <p className='text-center'></p> :
                         total.map(ddd => <Total key={ddd.id} ddd={ddd}></Total>)
 
                     }

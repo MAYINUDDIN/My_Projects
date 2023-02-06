@@ -1,6 +1,7 @@
 
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
+import Beftn from './Components/Beftn/Beftn';
 import Daily from './Components/DailyBusiness/Daily';
 import DailyBusiness from './Components/DailyBusiness/DailyBusiness';
 import DailybusinessDetails from './Components/DailyBusiness/DailybusinessDetails';
@@ -39,6 +40,7 @@ function App() {
         <Route path='/Sb-office' element={<PrivateRoute><Sb></Sb></PrivateRoute>}>SB</Route>
         <Route path='/Total_Business' element={<PrivateRoute><Total></Total></PrivateRoute>}>SB</Route>
         <Route path='/Statement' element={<PrivateRoute><Statement></Statement></PrivateRoute>}>Statement</Route>
+                <Route path='/Beftn' element={<PrivateRoute><Beftn></Beftn></PrivateRoute>}>Statement</Route>
         {/* <Route path='/Daily_Business' element={<PrivateRoute><DailyBusiness></DailyBusiness></PrivateRoute>}>SB</Route> */}
         <Route path='/Daily_Business' element={<DailyBusiness></DailyBusiness>}>SB</Route>
 

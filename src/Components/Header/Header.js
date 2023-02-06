@@ -20,7 +20,7 @@ const Header = () => {
 
 
     return (
-        <div class="navbar bg-green-600 lg:px-24">
+        <div class="navbar bg-green-600 lg:px-12">
             <div class="navbar-start">
                 <div class="dropdown">
                     <label tabindex="0" class="btn btn-ghost lg:hidden">
@@ -34,11 +34,11 @@ const Header = () => {
                         {
                             user ?
                                 <>  <li className='rounded  font-bold text-white bg-[#087f23]   '><NavLink to='/ekok'>EKOK</NavLink></li>
-                                    <li className='rounded  font-bold text-white bg-[#087f23] ml-2 mt-1'><NavLink to='/Sb-office'>SB</NavLink ></li>
+                                    <li className='rounded  font-bold text-white bg-[#087f23] ml-1 mt-1'><NavLink to='/Sb-office'>SB</NavLink ></li>
                                     {/* <li className='rounded  font-bold text-white bg-[#087f23] ml-2 mt-1'><NavLink to='/Total_Business'>TOTAL BUSINESS</NavLink ></li> */}
-                                    <li className='rounded  font-bold text-white bg-[#087f23] ml-2 mt-1'><NavLink to='/Daily_Business'>Daily BUSINESS</NavLink ></li>
+                                    <li className='rounded  font-bold text-white bg-[#087f23] ml-1 mt-1'><NavLink to='/Daily_Business'>Daily BUSINESS</NavLink ></li>
 
-                                    <button className='btn btn-success bg-[#087f23] text-white ml-2 rounded px-6 mt-1' onClick={handleSignOut}>logout</button></> :
+                                    <button className='btn btn-success bg-[#087f23] text-white ml-1 rounded px-6 mt-1' onClick={handleSignOut}>logout</button></> :
                                 <CustomLink to={'/'}>
                                     <button className='btn btn-success bg-[#087f23] text-white rounded px-12 '>Login</button>
                                 </CustomLink>
@@ -62,8 +62,10 @@ const Header = () => {
                             <>  <li className='rounded  font-bold text-white bg-[#087f23]  '><NavLink to='/ekok'>EKOK</NavLink></li>
                                 <li className='rounded  font-bold text-white bg-[#087f23] ml-2 '><NavLink to='/Sb-office'>SB</NavLink ></li>
                                 {/* <li className='rounded  font-bold text-white bg-[#087f23] ml-2 '><NavLink to='/Total_Business'>TOTAL BUSINESS</NavLink ></li> */}
-                                <li className='rounded  font-bold text-white bg-[#087f23] ml-2 '><NavLink to='/Daily_Business'>Daily BUSINESS</NavLink ></li>
+                                <li className='rounded  font-bold text-white bg-[#087f23] ml-2 '><NavLink to='/Daily_Business'>Daily Business</NavLink ></li>
                                 <li className='rounded  font-bold text-white bg-[#087f23] ml-2 '><NavLink to='/Statement'>Policy Statement</NavLink ></li>
+                             <li className='rounded  font-bold text-white bg-[#087f23] ml-2 '><NavLink to='/Beftn'>Beftn</NavLink ></li>
+
                                 <button className='btn btn-success bg-[#087f23] text-white ml-2 rounded px-6' onClick={handleSignOut}>logout</button></> :
                             <CustomLink to={'/'}>
                                 <button className='btn btn-success bg-[#087f23] text-white rounded px-12 '>Login</button>
