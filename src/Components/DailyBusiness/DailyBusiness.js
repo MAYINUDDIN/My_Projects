@@ -107,100 +107,7 @@ const DailyBusiness = () => {
     }
 
 
-    // const daily = () => {
-
-    //     fetch(`http://202.164.213.67/payment/daily/sb_business.php?FROM_DATE=${fromdate}&&TOO_DATE=${todate}`)
-    //         .then(Response => Response.json())
-    //         .then(data => {
-    //             const loadedData = data;
-
-    //             const dData = loadedData.map(ekok => {
-    //                 const d = ekok.OFF_NAME;
-    //                 console.log(d);
-
-    //             });
-    //             SetDailyDatasb(loadedData);
-
-    //         });
-
-    //     fetch(`http://202.164.213.67/payment/daily/ekok_business.php?FROM_DATE=${fromdate}&&TOO_DATE=${todate}`)
-    //         .then(Response => Response.json())
-    //         .then(data => {
-    //             const loadedData = data;
-
-    //             const dData = loadedData.map(ekok => {
-    //                 const d = ekok.OFF_NAME;
-    //                 console.log(d);
-
-    //             });
-    //             SetDailyData(loadedData);
-
-    //         });
-
-
-
-
-    //     fetch(`http://202.164.213.67/payment/daily/ekoksb.php?FROM_DATE=${fromdate}&&TOO_DATE=${todate}`)
-    //         .then(Response => Response.json())
-    //         .then(data => {
-    //             const loadedTData = data;
-
-    //             const dData = loadedTData.map(ekok => {
-    //                 const d = ekok.OFF_NAME;
-    //                 console.log(d);
-
-    //             });
-    //             SetTData(loadedTData);
-
-    //         });
-
-    //     fetch(`http://202.164.213.67/payment/daily/ekok_total.php?FROM_DATE=${fromdate}&&TOO_DATE=${todate}`)
-    //         .then(Response => Response.json())
-    //         .then(data => {
-    //             const loadedTData = data;
-
-    //             const dData = loadedTData.map(ekok => {
-    //                 const d = ekok.OFF_NAME;
-    //                 console.log(d);
-
-    //             });
-    //             SetEDailyData(loadedTData);
-
-    //         });
-
-    //     fetch(`http://202.164.213.67/payment/daily/sb_total.php?FROM_DATE=${fromdate}&&TOO_DATE=${todate}`)
-    //         .then(Response => Response.json())
-    //         .then(data => {
-    //             const loadedTData = data;
-
-    //             const dData = loadedTData.map(ekok => {
-    //                 const d = ekok.OFF_NAME;
-    //                 console.log(d);
-
-    //             });
-    //             SetSDailyData(loadedTData);
-
-    //         });
-
-
-    //     fetch(`http://202.164.213.67/payment/daily/all_total.php?FROM_DATE=${fromdate}&&TOO_DATE=${todate}`)
-    //         .then(Response => Response.json())
-    //         .then(data => {
-    //             const loadedTData = data;
-
-    //             const dData = loadedTData.map(ekok => {
-    //                 const d = ekok.OFF_NAME;
-    //                 console.log(d);
-
-    //             });
-    //             SetTotal(loadedTData);
-
-    //         });
-
-
-    // }
-
-
+ 
     return (
         <div>
 
@@ -347,7 +254,7 @@ const DailyBusiness = () => {
                         {
                             finaldata.length === 0 ? <p className='text-center'></p> :
                                 finaldata.map(f => <Final_business key={f.id} f={f}></Final_business>)
-                }
+                        }
                 
                 <div className="ml-0 mt-1 flex justify-center  w-full">
                      <div className=" mb-3">

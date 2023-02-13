@@ -14,6 +14,7 @@ import Login from './Components/Login/Login';
 import Notfound from './Components/NotFound/Notfound';
 import Statement from './Components/Pol_statement/Statement';
 import PrivateRoute from './Components/PrivateRoute/PrivateRoute';
+import Pr_amount from './Components/PR_AMOUNT/Pr_amount';
 import Register from './Components/Register/Register';
 import Sb from './Components/Sb/Sb';
 import SbScResult from './Components/Sb/SbScResult';
@@ -40,7 +41,8 @@ function App() {
         <Route path='/Sb-office' element={<PrivateRoute><Sb></Sb></PrivateRoute>}>SB</Route>
         <Route path='/Total_Business' element={<PrivateRoute><Total></Total></PrivateRoute>}>SB</Route>
         <Route path='/Statement' element={<PrivateRoute><Statement></Statement></PrivateRoute>}>Statement</Route>
-                <Route path='/Beftn' element={<PrivateRoute><Beftn></Beftn></PrivateRoute>}>Statement</Route>
+        <Route path='/Beftn' element={<PrivateRoute><Beftn></Beftn></PrivateRoute>}>Statement</Route>
+        <Route path='/Pr_amount' element={<PrivateRoute><Pr_amount></Pr_amount></PrivateRoute>}>PR_AMOUNT</Route>
         {/* <Route path='/Daily_Business' element={<PrivateRoute><DailyBusiness></DailyBusiness></PrivateRoute>}>SB</Route> */}
         <Route path='/Daily_Business' element={<DailyBusiness></DailyBusiness>}>SB</Route>
 
