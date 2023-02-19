@@ -1,20 +1,36 @@
+import { format } from 'date-fns';
 import React, { useState } from 'react';
+import DatePicker from 'react-date-picker';
+import Moment from 'react-moment';
 import Loading from '../Loading';
+import Bank_amount from './Bank_amount';
 import Pr_amount_details from './Pr_amount_details';
 
 const Pr_amount = () => {
 
     const [bank_amount, SetBankAmount] = useState([]);
-    //  console.log(bank_amount);
-    const [fromdate, setFromDate] = useState();
+        const [prr_amount, SetPrrAmount] = useState([]);
+    //  console.log(prr_amount);
+    const [fromdate, setFromDate] = useState(new Date());
     const [todate, setToDate] = useState();
-    // console.log(fromdate, todate);
 
+    // const FrmDate = (format(new Date(fromdate), 'yyyyMMdd'))
+//    const ToDate = (format(new Date(todate), 'yyyyMMdd'))
+    
+// const date = new Date();
+
+// const result = format(fromdate, 'yyyyMMdd');
+// console.log(result); 
+    
 
   const pr_amount = () => {
         fetch(`http://202.164.213.67/payment/statement/bank_amount.php?FROM_DATE=${fromdate}&&TOO_DATE=${todate}`)
             .then(Response => Response.json())
-            .then(data =>SetBankAmount(data)) 
+          .then(data => SetBankAmount(data)) 
+      
+        fetch(`http://202.164.213.67/payment/statement/pr_amount.php?FROM_DATE=${fromdate}&&TOO_DATE=${todate}`)
+            .then(Response => Response.json())
+            .then(data =>SetPrrAmount(data)) 
 
     };
 
@@ -25,14 +41,13 @@ const Pr_amount = () => {
 
                         <h2 className='font-bold lg:text-2xl mt-5 text-secondary drop-shadow'> <span className='text-success lg:text-3xl'>BANK & PR COLLECTION INFORMATION</span>  </h2>
 
-            
             <div class="stats px-6 bg-success rounded mt-2 text-primary-content">
 
                      <div class="stat">
                     <div className="flex text-center align-items-center">
                         <p className="text-sm font-bold mr-3">FROM DATE :   </p>
-                        <input className="text-dark shadow rounded p-2 text-center" type="date" onChange={e => setFromDate(e.target.value)} />
-
+                        <input className="text-dark shadow rounded p-2 text-center" dateFormat="MMddyyyy"     type="date" onChange={e => setFromDate(e.target.value)} />
+    
                     </div>
 
 
@@ -52,22 +67,40 @@ const Pr_amount = () => {
                 </div>
 
             </div>
+
+            <div>
+                
+            </div>
                       {
                         bank_amount.length === 0 ? <p className='text-center'></p> :
               <div className='lg:px-96 flex gap-0 lg:ml-12  mt-3 justify-center p-0'>
                 
-              <div class="stat w-24 lg:w-96 mt-0 bg-[#01579b] text-white font-bold bordered ">
-                 < h2 className='text-left bordered rounded text-lg font-bold'>BANK COLLECTION</h2 >
-                </div >
-                  <div class="stat w-24 lg:w-96 mt-0 lg:ml-1 mr-5 bg-[#01579b] text-white font-bold bordered">
-                 < h2 className='text-left bordered rounded text-lg font-bold'>PR COLLECTION</h2 >
-                </div >
+              {/* <div class="stat w-24 lg:w-96 mt-0 bg-[#01579b] text-white font-bold bordered ">
+                 < h2 className='text-left bordered rounded text-lg font-bold'>BANK DEPOSIT </h2 >
+                </div > */}
+              
               </div>
                         }
-       
+  
                      {
                         bank_amount.length === 0 ? <p className='text-center'><Loading/></p> :
                         bank_amount.map(bnk_amount => <Pr_amount_details key={bnk_amount.id} bnk_amount={bnk_amount}></Pr_amount_details>)
+
+            }
+                      {
+                        prr_amount.length === 0 ? <p className='text-center'></p> :
+              <div className='lg:px-96 flex gap-0 lg:ml-12  mt-1 justify-center p-0'>
+                
+              {/* <div class="stat w-24 lg:w-96 mt-0 bg-[#01579b] text-white font-bold bordered ">
+                 < h2 className='text-left bordered rounded text-lg font-bold'>PR ISSUE</h2 >
+                </div > */}
+               
+              </div>
+                        }
+            
+                       {
+                        prr_amount.length === 0 ? <p className='text-center'><Loading/></p> :
+                        prr_amount.map(p_amount => <Bank_amount key={p_amount.id} p_amount={p_amount}></Bank_amount>)
 
                     }
 
