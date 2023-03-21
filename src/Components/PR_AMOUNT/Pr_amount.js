@@ -12,6 +12,7 @@ const Pr_amount = () => {
         const [prr_amount, SetPrrAmount] = useState([]);
     //  console.log(prr_amount);
     const [fromdate, setFromDate] = useState(new Date());
+    console.log(fromdate);
     const [todate, setToDate] = useState();
 
     // const FrmDate = (format(new Date(fromdate), 'yyyyMMdd'))
