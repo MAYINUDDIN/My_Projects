@@ -20,6 +20,8 @@ import Sb from './Components/Sb/Sb';
 import SbScResult from './Components/Sb/SbScResult';
 import SbZone from './Components/Sb/SbZone';
 import Total from './Components/Total_business/Total';
+import Div_info from './Components/Business_info/Div_info';
+import Zoneekok from './Components/Business_info/Zoneekok';
 
 
 
@@ -51,6 +53,11 @@ function App() {
         <Route path='/DIV_CODE=:id' element={<PrivateRoute><Div></Div></PrivateRoute>}>Sc</Route>
         <Route path='/DIV_SB_CODE=:id' element={<PrivateRoute><SbScResult></SbScResult></PrivateRoute>}>Sb_Sc</Route>
         <Route path='/Daily_business=:from=:to' element={<PrivateRoute><DailybusinessDetails></DailybusinessDetails></PrivateRoute>}>Sb_Sc</Route>
+
+        <Route path='/div_business' element={<PrivateRoute><Div_info></Div_info></PrivateRoute>}>Div Info</Route>
+        
+        <Route path='/Zoneekok' element={<PrivateRoute><Zoneekok></Zoneekok></PrivateRoute>}>Div Info</Route>
+
 
         <Route path='/SCCODE=:id' element={<PrivateRoute><ZoneEkok></ZoneEkok></PrivateRoute>}>Zone</Route>
         <Route path='/SC_SB_CODE=:id' element={<PrivateRoute><SbZone></SbZone></PrivateRoute>}>Sb_Zone</Route>

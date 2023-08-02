@@ -6,6 +6,7 @@ import { Link, Navigate, NavLink } from 'react-router-dom';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../Firebase/firebase.init';
 import { signOut } from 'firebase/auth';
+
 const Header = () => {
 
     const [user] = useAuthState(auth);
@@ -67,6 +68,16 @@ const Header = () => {
                                 <li className='rounded  lg:w-48  font-bold text-white bg-[#087f23] lg:ml-1 '><NavLink to='/Statement'>POLICY STATEMENT</NavLink ></li>
                              <li className='rounded  font-bold text-white bg-[#087f23] lg:ml-1 '><NavLink to='/Beftn'>BEFTN</NavLink ></li>
                              <li className='rounded lg:w-36  font-bold text-white bg-[#087f23] lg:ml-1 '><NavLink to='/Pr_amount'>PR AMOUNT</NavLink ></li>
+                             {/* <li className='rounded lg:w-52 font-bold text-white bg-[#087f23] lg:ml-1 '><NavLink className='text-white' to='/div_business'>DIVISION (EKOK)</NavLink ></li> */}
+                             <li className='rounded lg:w-36 text-center font-bold text-white bg-[#087f23] lg:ml-1 '>  <label tabIndex={0} className="btn m-1 font-bold text-white text-white bg-[#087f23] border-none">BUSINESS INFO</label>
+                             <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
+                             <li className='rounded lg:w-48 font-bold text-sm text-white bg-[#087f23]'><NavLink className='text-white' to='/div_business'>DIVISION (EKOK)</NavLink ></li>
+                                <li className='rounded lg:w-48 font-bold text-sm text-white mt-1 bg-[#087f23]'><NavLink className='text-white' to='/Zoneekok'>ZONE (EKOK)</NavLink ></li>
+                                <li className='rounded lg:w-48 font-bold text-sm text-white mt-1 bg-[#087f23]'><a>SB</a></li>
+                            </ul>
+
+                             </li>
+
                                 <button className='btn btn-success bg-[#087f23] text-white lg:ml-1 rounded px-6 mr-24' onClick={handleSignOut}>logout</button></> :
                             <CustomLink to={'/'}>
                                 <button className='btn btn-success bg-[#087f23] text-white rounded px-12 '>Login</button>
@@ -76,6 +87,7 @@ const Header = () => {
 
                 </ul>
             </div>
+
 
 
 
