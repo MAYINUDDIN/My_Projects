@@ -56,16 +56,16 @@ const Zoneekok = () => {
                                  <h2 className='text-sm'>FY_RATIO</h2>
                              </div>
                              
-                            <div class="stat w-48 ml-1  bg-[#004ecb] text-white font-bold bordered rounded">
-                                 < h2 className='text-sm bordered rounded '>REN_PREVIOUS_YEAR</h2 >
+                            <div class="stat w-32 ml-1  bg-[#004ecb] text-white font-bold bordered rounded">
+                                 < h2 className='text-sm bordered rounded '>REN_PRE_YEAR</h2 >
                              </div >
 
-                             <div class="stat w-48  bg-[#004ecb] text-white font-bold bordered rounded ml-1">
-                                 <h2 className='text-sm'>REN_CURRENT_YEAR</h2>
+                             <div class="stat w-36  bg-[#004ecb] text-white font-bold bordered rounded ml-1">
+                                 <h2 className='text-sm'>REN_CURR_YEAR</h2>
                              </div>
 
 
-                             <div class="stat w-48  bg-[#004ecb] text-white font-bold bordered ml-1 rounded">
+                             <div class="stat w-32  bg-[#004ecb] text-white font-bold bordered ml-1 rounded">
                                  <h2 className='text-sm text-center'>REN_RATIO</h2>
                               </div>
              
@@ -100,15 +100,15 @@ const Zoneekok = () => {
             <div class="stat w-24 lg:w-32 mt-1 bg-[#007c91] text-white font-bold bordered ml-1 rounded">
              <h2 className='text-sm text-center font-bold '>{info?.FY_RATIO}</h2>
             </div>
-             <div class="stat w-24 lg:w-48 mt-1 bg-[#004ecb] text-white font-bold bordered ml-1 rounded">
+             <div class="stat w-24 lg:w-32 mt-1 bg-[#004ecb] text-white font-bold bordered ml-1 rounded">
               <h2 className='text-sm text-right font-bold text-center'>{info?.REN_PREVIOUS_YEAR}</h2>
              </div>
                               
-             <div class="stat w-32 lg:w-48 ml-1 mt-1  bg-[#007c91] text-white font-bold bordered rounded">
+             <div class="stat w-32 lg:w-36 ml-1 mt-1  bg-[#007c91] text-white font-bold bordered rounded">
                  < h2 className='text-sm bordered rounded font-bold text-center'>{info?.REN_CURRENT_YEAR}</h2 >
                </div >
 
-               <div class="stat w-32 lg:w-48 ml-1 mt-1  bg-[#007c91] text-white font-bold bordered rounded">
+               <div class="stat w-32 lg:w-32 ml-1 mt-1  bg-[#007c91] text-white font-bold bordered rounded">
                  < h2 className='text-sm bordered rounded font-bold text-center'>{info?.REN_RATIO}</h2 >
                </div >
               <div class="stat w-48 mt-1 bg-[#004ecb] text-white font-bold bordered rounded ml-1">
