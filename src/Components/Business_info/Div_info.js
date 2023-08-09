@@ -1,38 +1,44 @@
 import React from 'react';
 import { useState } from 'react';
 import Loading from '../Loading';
+import { format } from 'date-fns';
 
 
 const Div_info = () => {
     const [divinfo, SetDivinfo] = useState([]);
     console.log(divinfo);
     const [fromdate, setFromDate] = useState(new Date());
-    const [todate, setToDate] = useState();
+    const [todate, setToDate] = useState(new Date());
     console.log(fromdate, todate);
+    const F_DATE=(format(new Date(fromdate), 'yyyyMM'));
+    const TO_DATE=(format(new Date(todate), 'yyyyMM'));
+    console.log(F_DATE,TO_DATE);
+
+
 
     var nf = new Intl.NumberFormat();
 
     const div_info = () => {
-        fetch(`http://202.164.213.67/payment/daily/div_year.php?FROM_DATE=${fromdate}&&TO_DATE=${todate}`)
+        fetch(`http://202.164.213.67/payment/daily/div_year.php?FROM_DATE=${F_DATE}&&TO_DATE=${TO_DATE}`)
             .then(Response => Response.json())
             .then(data => SetDivinfo(data))
     };
 
     return (
-        <div>
+        <div className='mb-3'>
             <h2 className='font-bold lg:text-2xl mt-5 text-secondary drop-shadow'>
                 PREVIOUS & CURRENT YEAR BUSINESS INFORMATION <span className='text-primary lg:text-2xl'> (DIVISION-EKOK)</span>  </h2>
             <div class="stats px-6 bg-success rounded mt-2 mb-4 text-primary-content">
                 <div class="stat">
                     <div className="flex text-center align-items-center">
                         <p className="text-sm font-bold mr-3">FROM MONTH :   </p>
-                        <input className="text-dark shadow rounded p-2 text-center" format="YYYY" type="month" onChange={e => setFromDate(e.target.value)} />
+                        <input className="text-dark shadow rounded p-2 text-center" format="YYYYMM" type="month" onChange={e => setFromDate(e.target.value)} />
                     </div>
                 </div>
                 <div class="stat">
                     <div className="flex text-center align-items-center">
                         <p className="text-sm font-bold mr-3">TO MONTH :</p>
-                        <input className="text-dark shadow rounded p-2 text-center" format="YYYY" type="month" dateFormat="yyyymm" onChange={e => setToDate(e.target.value)} />
+                        <input className="text-dark shadow rounded p-2 text-center" format="YYYYMM" type="month" dateFormat="yyyymm" onChange={e => setToDate(e.target.value)} />
                         <button onClick={div_info} className=" m-3 btn-primary  text-white btn-md px-10 text-lg rounded bg-[#002f6c] uppercase">Submit</button>
                     </div>
                 </div>
@@ -78,7 +84,7 @@ const Div_info = () => {
                                  </div>
 
                                  <div class="stat w-28 bg-[#005b4f] text-white font-bold bordered ml-1 rounded">
-                                     <h2 className='text-sm '>TOTAL_RATIO</h2>
+                                     <h2 className='text-sm text-center'>TOTAL_RATIO</h2>
                                  </div>
                              </div>
 
@@ -87,7 +93,7 @@ const Div_info = () => {
              {divinfo.map((info, index) => (
             
             
-              <div className="ml-0 flex justify-center w-96  lg:w-full">
+              <div className="ml-0 flex justify-center w-96   lg:w-full">
               <div class="stat w-24 lg:w-40 mt-1 bg-success text-white font-bold bordered rounded">
                < h2 className='text-left bordered rounded text-sm font-bold'>{info?.NAME}</h2 >
               </div >

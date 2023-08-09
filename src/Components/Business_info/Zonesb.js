@@ -2,7 +2,7 @@ import React from 'react';
 import { useState } from 'react';
 import Loading from '../Loading';
 import { format } from 'date-fns';
-const Zoneekok = () => {
+const Zonesb = () => {
     const [zoneinfo, Setzoneinfo] = useState([]);
     console.log(zoneinfo);
     const [fromdate, setFromDate] = useState(new Date());
@@ -15,16 +15,15 @@ const Zoneekok = () => {
     var nf = new Intl.NumberFormat();
 
     const zone_info = () => {
-        fetch(`http://202.164.213.67/payment/daily/zoneekok_year.php?FROM_DATE=${F_DATE}&&TO_DATE=${TO_DATE}`)
+        fetch(`http://202.164.213.67/payment/daily/zonesbyear.php?FROM_DATE=${F_DATE}&&TO_DATE=${TO_DATE}`)
             .then(Response => Response.json())
             .then(data => Setzoneinfo(data))
     };
 
-
     return (
         <div>
         <h2 className='font-bold lg:text-2xl mt-5 text-secondary drop-shadow'>PREVIOUS & CURRENT YEAR BUSINESS INFORMATION
-             <span className='text-primary lg:text-2xl'> (ZONE-EKOK)</span>  </h2>
+             <span className='text-primary lg:text-2xl'> (ZONE-SB)</span>  </h2>
         <div class="stats px-6 bg-success rounded mt-2 mb-4 text-primary-content">
             <div class="stat">
                 <div className="flex text-center align-items-center">
@@ -44,7 +43,7 @@ const Zoneekok = () => {
             {
              zoneinfo.length === 0 ? <p className='text-center'><Loading/>Data loading</p> :
              <div className="ml-0 mt-1 flex justify-center w-96  lg:w-full">
-
+                               
                              <div class="stat w-40  bg-[#005b4f] text-white font-bold bordered rounded">
                                  < h2 className='text-left bordered rounded text-sm  font-bold'>ZONE NAME</h2 >
                              </div >
@@ -136,4 +135,4 @@ const Zoneekok = () => {
     );
 };
 
-export default Zoneekok;
+export default Zonesb;
